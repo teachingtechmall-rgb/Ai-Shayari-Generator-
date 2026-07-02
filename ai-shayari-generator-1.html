@@ -62,7 +62,8 @@ select:focus,input[type=text]:focus{border-color:var(--maroon);}
 .gen-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 16px 32px -12px rgba(2,132,199,.5);}
 .gen-btn:disabled{opacity:.6;cursor:wait;}
 .result-card{margin-top:24px;border-radius:14px;padding:28px 24px;background:#fff;border:1px solid var(--line);position:relative;min-height:100px;background-image:repeating-linear-gradient(transparent,transparent 33px,var(--line) 33px,var(--line) 34px);background-position:0 40px;}
-.result-card .seal{position:absolute;top:-13px;right:14px;background:var(--gold);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:800;box-shadow:0 4px 12px -4px rgba(14,165,233,.45);}
+.result-card .seal{position:absolute;top:-13px;right:14px;background:var(--gold);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:800;box-shadow:0 4px 12px -4px rgba(14,165,233,.45);transition:.2s;}
+.result-card .seal.offline{background:#94A3B8;box-shadow:0 4px 12px -4px rgba(100,116,139,.45);}
 .shayari-text{font-family:'Tiro Devanagari Hindi',serif;font-size:21px;line-height:34px;white-space:pre-wrap;color:var(--maroon-deep);min-height:34px;}
 .shayari-text.urdu-mode{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:26px;line-height:44px;}
 .placeholder-txt{color:#8FAEC2;font-size:15px;font-style:italic;font-family:'Manrope',sans-serif;}
@@ -375,7 +376,7 @@ nav{position:relative;align-items:center;}
     </div>
     <button class="gen-btn" id="genBtn">✨ Shayari Generate Karein</button>
     <div class="result-card">
-      <span class="seal">🪶 AI Generated</span>
+      <span class="seal" id="resultSeal">🪶 AI Generated</span>
       <div class="shayari-text" id="output"><span class="placeholder-txt">Upar topic aur script chunkar "Generate" dabayein — AI aapke liye original shayari likh dega...</span></div>
     </div>
     <div class="actions">
@@ -941,7 +942,10 @@ function renderCouplet(c,scriptVal,idx){
 
 const output=document.getElementById('output');
 const genBtn=document.getElementById('genBtn');
+const resultSeal=document.getElementById('resultSeal');
 let lastCouplets=[];
+let lastSource='ai'; // 'ai' ya 'offline'
+const SITE_URL='ai-shayari-generator.vercel.app';
 
 /* ===== AI GENERATION =====
    Ab key yahan nahi hai — request /api/generate (Vercel serverless function) ko jaati hai,
@@ -953,6 +957,17 @@ function scriptInstruction(s){
   if(s.includes('Urdu'))return 'Sirf Urdu Nastaliq script mein likho.';
   if(s.includes('Mixed'))return 'Hindi aur English dono mila kar (mixed script) likho.';
   return 'Sirf Roman/Hinglish (English letters) mein likho, jaise WhatsApp par Hindi likhte hain.';
+}
+
+function setSeal(source){
+  lastSource=source;
+  if(source==='ai'){
+    resultSeal.textContent='🪶 AI Generated';
+    resultSeal.classList.remove('offline');
+  }else{
+    resultSeal.textContent='📖 Offline Shayari';
+    resultSeal.classList.add('offline');
+  }
 }
 
 async function fetchFromGemini(topic,tone,linesVal){
@@ -983,6 +998,7 @@ function generateShayari(){
   fetchFromGemini(topic,tone,linesVal).then(text=>{
     lastCouplets=[{hi:text,ur:text,ro:text}];
     output.textContent=text;
+    setSeal('ai');
     genBtn.disabled=false; genBtn.textContent='✨ Shayari Generate Karein';
   }).catch(()=>{
     /* Agar API fail ho jaaye (galat key, no internet, quota khatam) to
@@ -992,6 +1008,7 @@ function generateShayari(){
     lastCouplets=couplets;
     const text=couplets.map(c=>renderCouplet(c,script)).join('\n\n');
     output.textContent=text;
+    setSeal('offline');
     genBtn.disabled=false; genBtn.textContent='✨ Shayari Generate Karein';
   });
 }
@@ -1038,34 +1055,101 @@ document.getElementById('favBtn').addEventListener('click',()=>{
 renderFavs();
 
 /* ===== SHARE / COPY / DOWNLOAD ACTIONS ===== */
+function withBrand(text){
+  return `${text}\n\n✦ ${SITE_URL}`;
+}
 document.getElementById('copyBtn').addEventListener('click',()=>{
   const t=output.textContent;if(!t||t.includes('Generate'))return;
-  navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn');b.textContent='✅ Copied!';setTimeout(()=>b.textContent='📋 Copy',1500);});
+  navigator.clipboard.writeText(withBrand(t)).then(()=>{const b=document.getElementById('copyBtn');b.textContent='✅ Copied!';setTimeout(()=>b.textContent='📋 Copy',1500);});
 });
 document.getElementById('waBtn').addEventListener('click',()=>{
   const t=output.textContent;if(!t)return;
-  window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank');
+  window.open('https://wa.me/?text='+encodeURIComponent(withBrand(t)),'_blank');
 });
 document.getElementById('igBtn').addEventListener('click',()=>{
-  navigator.clipboard.writeText(output.textContent);
+  navigator.clipboard.writeText(withBrand(output.textContent));
   alert('Shayari copy ho gayi — Instagram app mein paste karein!');
 });
-document.getElementById('dlBtn').addEventListener('click',()=>{
-  const t=output.textContent;if(!t)return;
-  const c=document.createElement('canvas');c.width=1000;c.height=650;
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+function cornerFlourish(ctx,x,y,fx,fy){
+  ctx.save();ctx.translate(x,y);ctx.scale(fx,fy);
+  ctx.strokeStyle='#0EA5E9';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(0,30);ctx.lineTo(0,6);ctx.quadraticCurveTo(0,0,6,0);ctx.lineTo(30,0);ctx.stroke();
+  ctx.restore();
+}
+document.getElementById('dlBtn').addEventListener('click',async()=>{
+  const t=output.textContent;if(!t||t.includes('Generate'))return;
+  if(document.fonts&&document.fonts.ready){try{await document.fonts.ready;}catch(e){}}
+
+  const topicLabel=topicSel.value==='custom'
+    ?('✍️ '+(document.getElementById('customTopic').value||'Zindagi'))
+    :topicSel.options[topicSel.selectedIndex].text;
+
+  const W=1080,H=1350;
+  const c=document.createElement('canvas');c.width=W;c.height=H;
   const ctx=c.getContext('2d');
-  const grad=ctx.createLinearGradient(0,0,1000,650);
-  grad.addColorStop(0,'#FFFFFF');grad.addColorStop(1,'#EAF4FC');
-  ctx.fillStyle=grad;ctx.fillRect(0,0,1000,650);
-  ctx.strokeStyle='rgba(14,165,233,0.5)';ctx.lineWidth=2;ctx.strokeRect(24,24,952,602);
-  ctx.fillStyle='rgba(22,35,46,0.05)';
-  for(let y=110;y<600;y+=38){ctx.fillRect(60,y,880,1);}
-  ctx.fillStyle='#075985';ctx.font='bold 28px serif';ctx.fillText('✦ AI Shayari Generator',60,66);
-  ctx.fillStyle='#0284C7';ctx.font='26px serif';
-  const lines=t.split('\n');let y=150;
-  lines.forEach(l=>{if(l.trim()){ctx.fillText(l,70,y);y+=40;}else{y+=20;}});
-  ctx.fillStyle='#0EA5E9';ctx.font='14px sans-serif';ctx.fillText('ai-shayari-generator.vercel.app',60,615);
-  const a=document.createElement('a');a.download='shayari.png';a.href=c.toDataURL();a.click();
+
+  /* premium gradient backdrop */
+  const grad=ctx.createLinearGradient(0,0,W,H);
+  grad.addColorStop(0,'#F3FAFF');grad.addColorStop(0.55,'#FFFFFF');grad.addColorStop(1,'#EAF4FC');
+  ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+
+  /* subtle dot texture */
+  ctx.fillStyle='rgba(2,132,199,0.05)';
+  for(let y=20;y<H-20;y+=24){for(let x=20;x<W-20;x+=24){ctx.beginPath();ctx.arc(x,y,1.1,0,Math.PI*2);ctx.fill();}}
+
+  /* double premium border */
+  ctx.strokeStyle='#0284C7';ctx.lineWidth=3;ctx.strokeRect(38,38,W-76,H-76);
+  ctx.strokeStyle='rgba(14,165,233,0.35)';ctx.lineWidth=1;ctx.strokeRect(54,54,W-108,H-108);
+  cornerFlourish(ctx,54,54,1,1);cornerFlourish(ctx,W-54,54,-1,1);
+  cornerFlourish(ctx,54,H-54,1,-1);cornerFlourish(ctx,W-54,H-54,-1,-1);
+
+  ctx.textAlign='center';
+
+  /* brand header */
+  ctx.fillStyle='#075985';ctx.font='700 24px Manrope, sans-serif';
+  ctx.fillText('✦ AI SHAYARI GENERATOR ✦',W/2,118);
+
+  /* topic pill */
+  ctx.font='600 26px Manrope, sans-serif';
+  const pillW=Math.min(ctx.measureText(topicLabel).width+64,W-160);
+  ctx.fillStyle='#0284C7';
+  roundRect(ctx,W/2-pillW/2,150,pillW,54,27);ctx.fill();
+  ctx.fillStyle='#fff';ctx.fillText(topicLabel,W/2,185);
+
+  /* decorative opening quote */
+  ctx.font='110px Georgia, serif';ctx.fillStyle='rgba(2,132,199,0.10)';
+  ctx.fillText('❝',W/2,H/2-190);
+
+  /* shayari text, vertically centered */
+  ctx.fillStyle='#16232E';
+  const isUrdu=script.includes('Urdu');
+  ctx.font=(isUrdu?'32px "Noto Nastaliq Urdu", serif':'36px "Tiro Devanagari Hindi", Georgia, serif');
+  const rawLines=t.split('\n').filter(l=>l.trim().length||true);
+  const lineHeight=isUrdu?58:56;
+  let startY=H/2-(rawLines.length*lineHeight)/2+18;
+  rawLines.forEach(l=>{
+    if(l.trim()){ctx.fillText(l,W/2,startY);startY+=lineHeight;}
+    else{startY+=lineHeight*0.5;}
+  });
+
+  /* footer seal + link */
+  ctx.font='600 22px Manrope, sans-serif';
+  ctx.fillStyle='#0EA5E9';
+  ctx.fillText(lastSource==='ai'?'🪶 AI Generated':'📖 Curated Shayari',W/2,H-150);
+  ctx.font='500 18px Manrope, sans-serif';
+  ctx.fillStyle='#3E6E8E';
+  ctx.fillText(SITE_URL,W/2,H-108);
+
+  const a=document.createElement('a');a.download='shayari-premium.png';a.href=c.toDataURL();a.click();
 });
 
 /* ===== CONTACT FORM (static — mailto fallback, no backend yet) ===== */
