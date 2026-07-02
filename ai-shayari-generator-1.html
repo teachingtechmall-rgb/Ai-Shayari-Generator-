@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://ai-shayari-generator.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#5C1A21">
+<meta name="theme-color" content="#0284C7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AI Shayari Generator","applicationCategory":"Lifestyle","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free AI Shayari Generator to create Hindi, Urdu and Roman shayari on love, friendship, sadness and life instantly.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","ratingCount":"312"}}</script>
@@ -21,23 +21,24 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"AI Se Shayari Kaise Banayein","step":[{"@type":"HowToStep","name":"Topic chuno","text":"Pyaar, dosti, dard ya koi bhi mood/topic select karein."},{"@type":"HowToStep","name":"Lines aur tone chuno","text":"Kitni lines aur kaunsa andaaz chahiye set karein."},{"@type":"HowToStep","name":"Script chuno","text":"Hindi, Urdu, Roman ya Mixed script mein se ek chunein."},{"@type":"HowToStep","name":"Generate karein","text":"Generate button dabate hi shayari turant taiyaar ho jaati hai."}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kya AI Shayari Generator free hai?","acceptedAnswer":{"@type":"Answer","text":"Haan, ye tool bilkul free hai aur koi sign-up ya API key ki zaroorat nahi. Bas topic chuno aur shayari paao."}},{"@type":"Question","name":"AI Shayari Generator mein kaunsi script available hai?","acceptedAnswer":{"@type":"Answer","text":"Char scripts available hain: Hindi (Devanagari), Urdu Nastaliq, Roman/Hinglish aur Mixed."}},{"@type":"Question","name":"Kya generated shayari WhatsApp par share ho sakti hai?","acceptedAnswer":{"@type":"Answer","text":"Haan, copy button se seedha WhatsApp Status ya Instagram par bhej sakte hain."}},{"@type":"Question","name":"AI Shayari Generator kis kis topic par kaam karta hai?","acceptedAnswer":{"@type":"Answer","text":"Pyaar, dosti, dard, judai, zindagi, maa-baap, motivational, deshbhakti, tyohar — har topic par shayari banata hai."}}]}</script>
 <style>
-:root{--ink:#241312;--paper:#F6EEDF;--paper-dark:#EDE1C8;--maroon:#5C1A21;--maroon-deep:#3A0E13;--gold:#B8862E;--gold-light:#D9B26A;--line:rgba(36,19,18,0.13);--white:#FFFDF7;}
-:root[data-theme="dark"]{--ink:#F3E9DA;--paper:#1C1211;--paper-dark:#241715;--maroon:#E0A45C;--maroon-deep:#F6EEDF;--gold:#D9B26A;--gold-light:#E9C98A;--line:rgba(243,233,218,0.14);--white:#251815;}
+:root{--ink:#16232E;--paper:#FFFFFF;--paper-dark:#EAF4FC;--maroon:#0284C7;--maroon-deep:#075985;--gold:#0EA5E9;--gold-light:#7DD3FC;--line:rgba(2,132,199,0.15);--white:#FFFFFF;}
+:root[data-theme="dark"]{--ink:#EAF3FC;--paper:#0B1620;--paper-dark:#13212C;--maroon:#38BDF8;--maroon-deep:#7DD3FC;--gold:#0EA5E9;--gold-light:#5EC8F5;--line:rgba(234,243,252,0.16);--white:#132330;}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--paper);color:var(--ink);font-family:'Manrope',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s;}
-body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(rgba(36,19,18,0.03) 1px,transparent 1px);background-size:14px 14px;pointer-events:none;z-index:0;}
+body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(rgba(22,35,46,0.03) 1px,transparent 1px);background-size:14px 14px;pointer-events:none;z-index:0;}
 .wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+html,body{overflow-x:hidden;}
 a{color:var(--maroon);text-decoration:none;font-weight:600;}
 a:hover{text-decoration:underline;}
 
 /* HEADER */
-header{padding:20px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(246,238,223,0.95);backdrop-filter:blur(8px);z-index:100;}
+header{padding:20px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);z-index:100;}
 .header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:17px;color:var(--maroon-deep);}
 .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--maroon);}
 nav{display:flex;gap:18px;font-size:13.5px;font-weight:600;}
-nav a{color:#5a4234;}
+nav a{color:#4A6178;}
 
 /* HERO */
 .hero{padding:42px 0 10px;position:relative;z-index:1;}
@@ -47,26 +48,26 @@ h1{font-family:'Tiro Devanagari Hindi',serif;font-size:clamp(30px,5.5vw,52px);li
 .hero p.sub{font-size:16.5px;max-width:580px;color:#4a3531;margin-bottom:28px;}
 
 /* TOOL CARD */
-.tool-card{position:relative;z-index:1;background:linear-gradient(160deg,#FFFDF7,#F8EFDB 80%);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 24px 60px -28px rgba(58,14,19,.45);margin:10px 0 54px;}
+.tool-card{position:relative;z-index:1;background:linear-gradient(160deg,#FFFFFF,#EAF4FC 80%);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 24px 60px -28px rgba(2,84,135,.35);margin:10px 0 54px;}
 .row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px;}
 .field{flex:1;min-width:150px;}
-label.field-label{display:block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:#8a6443;margin-bottom:6px;}
+label.field-label{display:block;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:#3E6E8E;margin-bottom:6px;}
 select,input[type=text]{width:100%;padding:11px 13px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font-family:'Manrope',inherit;font-size:14.5px;color:var(--ink);outline:none;transition:.2s;}
 select:focus,input[type=text]:focus{border-color:var(--maroon);}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
-.chip{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-size:13px;cursor:pointer;font-weight:700;color:#5a4234;transition:.15s;}
+.chip{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-size:13px;cursor:pointer;font-weight:700;color:#4A6178;transition:.15s;}
 .chip.active{background:var(--maroon);border-color:var(--maroon);color:#fff;}
 .chip:hover:not(.active){border-color:var(--maroon);color:var(--maroon);}
-.gen-btn{width:100%;padding:16px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--maroon),var(--maroon-deep));color:#fff;font-weight:800;font-size:16px;cursor:pointer;letter-spacing:.3px;box-shadow:0 12px 28px -12px rgba(58,14,19,.55);transition:.2s;}
-.gen-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 16px 32px -12px rgba(58,14,19,.6);}
+.gen-btn{width:100%;padding:16px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--maroon),var(--maroon-deep));color:#fff;font-weight:800;font-size:16px;cursor:pointer;letter-spacing:.3px;box-shadow:0 12px 28px -12px rgba(2,132,199,.45);transition:.2s;}
+.gen-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 16px 32px -12px rgba(2,132,199,.5);}
 .gen-btn:disabled{opacity:.6;cursor:wait;}
 .result-card{margin-top:24px;border-radius:14px;padding:28px 24px;background:#fff;border:1px solid var(--line);position:relative;min-height:100px;background-image:repeating-linear-gradient(transparent,transparent 33px,var(--line) 33px,var(--line) 34px);background-position:0 40px;}
-.result-card .seal{position:absolute;top:-13px;right:14px;background:var(--gold);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:800;box-shadow:0 4px 12px -4px rgba(184,134,46,.55);}
+.result-card .seal{position:absolute;top:-13px;right:14px;background:var(--gold);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:800;box-shadow:0 4px 12px -4px rgba(14,165,233,.45);}
 .shayari-text{font-family:'Tiro Devanagari Hindi',serif;font-size:21px;line-height:34px;white-space:pre-wrap;color:var(--maroon-deep);min-height:34px;}
 .shayari-text.urdu-mode{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:26px;line-height:44px;}
-.placeholder-txt{color:#a99683;font-size:15px;font-style:italic;font-family:'Manrope',sans-serif;}
+.placeholder-txt{color:#8FAEC2;font-size:15px;font-style:italic;font-family:'Manrope',sans-serif;}
 .actions{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
-.act-btn{border:1.5px solid var(--line);background:#fff;padding:9px 15px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;color:#5a4234;transition:.15s;}
+.act-btn{border:1.5px solid var(--line);background:#fff;padding:9px 15px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;color:#4A6178;transition:.15s;}
 .act-btn:hover{border-color:var(--maroon);color:var(--maroon);}
 
 /* API KEY BANNER */
@@ -74,60 +75,60 @@ select:focus,input[type=text]:focus{border-color:var(--maroon);}
 /* SECTIONS */
 section{position:relative;z-index:1;padding:52px 0;border-top:1px solid var(--line);}
 h2{font-family:'Tiro Devanagari Hindi',serif;font-size:28px;color:var(--maroon-deep);margin-bottom:8px;}
-.section-sub{color:#5a4234;font-size:15px;margin-bottom:26px;}
+.section-sub{color:#4A6178;font-size:15px;margin-bottom:26px;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;}
 .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;}
 .card .icon{font-size:26px;margin-bottom:10px;}
 .card h3{margin-bottom:7px;font-size:15.5px;color:var(--maroon);}
-.card p{font-size:14px;color:#594740;line-height:1.6;}
+.card p{font-size:14px;color:#445A6B;line-height:1.6;}
 
 /* KEYWORD GRID */
 .kw-section h2{margin-bottom:6px;}
-.kw-intro{font-size:15px;color:#5a4234;margin-bottom:22px;}
+.kw-intro{font-size:15px;color:#4A6178;margin-bottom:22px;}
 .kw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
 .kw-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;transition:.2s;}
-.kw-card:hover{border-color:var(--maroon);background:#fdf5f3;}
+.kw-card:hover{border-color:var(--maroon);background:#EAF6FD;}
 .kw-card h4{font-size:14px;font-weight:700;color:var(--maroon);margin-bottom:4px;}
-.kw-card p{font-size:12.5px;color:#7a5c43;margin:0;}
+.kw-card p{font-size:12.5px;color:#4A7A96;margin:0;}
 .kw-tag{display:inline-block;font-size:11.5px;background:var(--paper-dark);color:var(--maroon);border-radius:999px;padding:3px 9px;margin-top:6px;font-weight:600;}
 
 /* LONG CONTENT */
 .content-block{max-width:780px;}
 .content-block h2{margin-bottom:16px;}
 .content-block h3{font-size:20px;color:var(--maroon);margin:28px 0 10px;}
-.content-block p{font-size:15px;color:#3d2e29;line-height:1.8;margin-bottom:14px;}
+.content-block p{font-size:15px;color:#223444;line-height:1.8;margin-bottom:14px;}
 .content-block ul{padding-left:22px;margin-bottom:14px;}
-.content-block ul li{font-size:15px;color:#3d2e29;margin-bottom:8px;line-height:1.7;}
+.content-block ul li{font-size:15px;color:#223444;margin-bottom:8px;line-height:1.7;}
 .content-block a{color:var(--maroon);}
 
 /* EXAMPLE SHAYARI */
 .shayari-examples{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px;}
-.ex-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative;background-image:repeating-linear-gradient(transparent,transparent 31px,rgba(92,26,33,0.06) 31px,rgba(92,26,33,0.06) 32px);background-position:0 38px;}
+.ex-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative;background-image:repeating-linear-gradient(transparent,transparent 31px,rgba(2,132,199,0.06) 31px,rgba(2,132,199,0.06) 32px);background-position:0 38px;}
 .ex-card .topic-tag{position:absolute;top:-10px;left:16px;background:var(--maroon);color:#fff;border-radius:999px;padding:3px 12px;font-size:11px;font-weight:800;}
 .ex-card .shayari{font-family:'Tiro Devanagari Hindi',serif;font-size:17px;line-height:30px;color:var(--maroon-deep);margin-top:8px;}
 
 /* FAQ */
 .faq details{border-bottom:1px solid var(--line);padding:16px 0;}
 .faq summary{font-weight:700;cursor:pointer;font-size:15.5px;color:var(--maroon-deep);}
-.faq p{margin:10px 0 0;color:#594740;font-size:14.5px;}
+.faq p{margin:10px 0 0;color:#445A6B;font-size:14.5px;}
 
 /* TAGS CLOUD */
 .tag-cloud{display:flex;flex-wrap:wrap;gap:8px;}
-.tag{font-size:12.5px;padding:6px 14px;border-radius:999px;background:var(--paper-dark);color:#6b5238;border:1px solid var(--line);cursor:pointer;font-weight:600;transition:.15s;}
+.tag{font-size:12.5px;padding:6px 14px;border-radius:999px;background:var(--paper-dark);color:#2E6B8A;border:1px solid var(--line);cursor:pointer;font-weight:600;transition:.15s;}
 .tag:hover{background:var(--maroon);color:#fff;border-color:var(--maroon);}
 
 /* FOOTER */
-footer{background:var(--maroon-deep);color:#c9b89f;padding:50px 0 30px;position:relative;z-index:1;}
+footer{background:var(--maroon-deep);color:#B7D4E8;padding:50px 0 30px;position:relative;z-index:1;}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:36px;}
-.footer-col h4{color:#F6EEDF;font-size:14px;font-weight:800;margin-bottom:14px;letter-spacing:.3px;}
+.footer-col h4{color:#FFFFFF;font-size:14px;font-weight:800;margin-bottom:14px;letter-spacing:.3px;}
 .footer-col ul{list-style:none;}
 .footer-col ul li{margin-bottom:8px;}
-.footer-col ul li a{color:#c9b89f;font-size:13.5px;font-weight:500;}
+.footer-col ul li a{color:#B7D4E8;font-size:13.5px;font-weight:500;}
 .footer-col ul li a:hover{color:#fff;}
 .footer-col p{font-size:13.5px;line-height:1.7;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .footer-links{display:flex;gap:16px;}
-.footer-links a{color:#c9b89f;font-size:12.5px;}
+.footer-links a{color:#B7D4E8;font-size:12.5px;}
 
 /* POPUPS */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;padding:20px;}
@@ -136,29 +137,29 @@ footer{background:var(--maroon-deep);color:#c9b89f;padding:50px 0 30px;position:
 .popup-header{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
 .popup-header h3{font-size:18px;color:var(--maroon-deep);}
 .popup-close{background:none;border:none;font-size:22px;cursor:pointer;color:#888;line-height:1;}
-.popup-body{padding:24px;overflow-y:auto;font-size:14px;color:#3d2e29;line-height:1.8;}
+.popup-body{padding:24px;overflow-y:auto;font-size:14px;color:#223444;line-height:1.8;}
 .popup-body h4{color:var(--maroon);margin:18px 0 8px;}
 .popup-body p{margin-bottom:12px;}
 .popup-footer{padding:16px 24px;border-top:1px solid var(--line);}
 .popup-footer button{width:100%;padding:12px;background:var(--maroon);color:#fff;border:none;border-radius:10px;font-weight:700;cursor:pointer;font-size:15px;}
 
 /* COOKIE BANNER */
-.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--maroon-deep);color:#e8d9c8;padding:18px 20px;z-index:500;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.3);}
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--maroon-deep);color:#DCEFFB;padding:18px 20px;z-index:500;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.3);}
 .cookie-banner p{font-size:13.5px;margin:0;flex:1;}
 .cookie-banner a{color:var(--gold-light);}
 .cookie-btns{display:flex;gap:10px;}
 .cookie-accept{background:var(--gold);color:#fff;border:none;padding:9px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;}
-.cookie-decline{background:transparent;color:#e8d9c8;border:1px solid rgba(255,255,255,.3);padding:9px 16px;border-radius:8px;cursor:pointer;font-size:13px;}
+.cookie-decline{background:transparent;color:#DCEFFB;border:1px solid rgba(255,255,255,.3);padding:9px 16px;border-radius:8px;cursor:pointer;font-size:13px;}
 
 /* API MODAL */
 
 /* NAV EXTRAS */
 nav{position:relative;align-items:center;}
 .nav-drop{position:relative;}
-.nav-drop>span{cursor:pointer;color:#5a4234;font-weight:600;}
+.nav-drop>span{cursor:pointer;color:#4A6178;font-weight:600;}
 .nav-drop-menu{display:none;position:absolute;top:26px;left:0;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:8px;min-width:200px;box-shadow:0 14px 30px -14px rgba(0,0,0,.3);z-index:200;}
 .nav-drop:hover .nav-drop-menu{display:block;}
-.nav-drop-menu a{display:block;padding:7px 10px;font-size:13px;border-radius:6px;color:#5a4234;font-weight:600;}
+.nav-drop-menu a{display:block;padding:7px 10px;font-size:13px;border-radius:6px;color:#4A6178;font-weight:600;}
 .nav-drop-menu a:hover{background:var(--paper-dark);text-decoration:none;}
 .theme-toggle{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:700;cursor:pointer;color:var(--maroon);}
 .mobile-toggle{display:none;background:none;border:1.5px solid var(--line);border-radius:8px;padding:6px 10px;font-size:16px;cursor:pointer;}
@@ -187,7 +188,7 @@ nav{position:relative;align-items:center;}
 .blog-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px;}
 .blog-card h3{color:var(--maroon);font-size:17px;margin-bottom:8px;}
 .numbered-list{counter-reset:step;list-style:none;padding:0;}
-.numbered-list li{counter-increment:step;position:relative;padding-left:38px;margin-bottom:16px;font-size:15px;color:#3d2e29;line-height:1.7;}
+.numbered-list li{counter-increment:step;position:relative;padding-left:38px;margin-bottom:16px;font-size:15px;color:#223444;line-height:1.7;}
 .numbered-list li::before{content:counter(step);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--maroon);color:#fff;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;}
 
 /* ABOUT / CONTACT / STATIC PAGES */
@@ -196,7 +197,7 @@ nav{position:relative;align-items:center;}
 .contact-form input,.contact-form textarea{width:100%;padding:12px 13px;border-radius:10px;border:1.5px solid var(--line);background:var(--white);color:var(--ink);font-family:inherit;font-size:14.5px;outline:none;}
 .contact-form textarea{min-height:110px;resize:vertical;}
 .contact-form button{justify-self:start;padding:12px 26px;border:none;border-radius:10px;background:var(--maroon);color:#fff;font-weight:800;cursor:pointer;}
-.contact-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:20px;font-size:14px;color:#5a4234;}
+.contact-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:20px;font-size:14px;color:#4A6178;}
 
 /* FAVORITES */
 .fav-btn{position:fixed;bottom:24px;right:24px;z-index:400;background:var(--maroon);color:#fff;border:none;border-radius:999px;padding:13px 18px;font-weight:800;font-size:13.5px;cursor:pointer;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);}
@@ -204,10 +205,10 @@ nav{position:relative;align-items:center;}
 .fav-panel{display:none;position:fixed;bottom:80px;right:24px;width:300px;max-height:400px;overflow-y:auto;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px;z-index:400;box-shadow:0 20px 50px -18px rgba(0,0,0,.5);}
 .fav-panel.show{display:block;}
 .fav-item{border-bottom:1px solid var(--line);padding:10px 0;font-family:'Tiro Devanagari Hindi',serif;font-size:14px;color:var(--maroon-deep);white-space:pre-wrap;}
-.fav-empty{font-size:13px;color:#9a8570;font-style:italic;}
+.fav-empty{font-size:13px;color:#7FA0B5;font-style:italic;}
 
 /* TRI-SCRIPT VIEW */
-.tri-toggle{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#8a6443;margin:10px 0 4px;cursor:pointer;user-select:none;}
+.tri-toggle{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#3E6E8E;margin:10px 0 4px;cursor:pointer;user-select:none;}
 .tri-view{display:none;gap:12px;margin-top:14px;}
 .tri-view.show{display:grid;grid-template-columns:1fr;gap:12px;}
 .tri-block{background:var(--paper-dark);border-radius:10px;padding:12px 14px;font-size:13.5px;}
@@ -218,7 +219,8 @@ nav{position:relative;align-items:center;}
 .input-with-voice{display:flex;gap:8px;}
 .input-with-voice input{flex:1;}
 
-@media(max-width:600px){h1{font-size:28px;}.hero p.sub{font-size:15px;}.shayari-text{font-size:18px;}.fav-panel{width:88vw;right:6vw;}}
+@media(max-width:600px){h1{font-size:28px;}.hero p.sub{font-size:15px;}.shayari-text{font-size:18px;}.fav-panel{width:88vw;right:6vw;}.wrap{padding:0 18px;}.tool-card{padding:20px 16px;}.result-card{padding:22px 16px;}.ex-card{padding:18px 14px;}}
+@media(max-width:400px){.wrap{padding:0 16px;}}
 </style>
 </head>
 <body>
@@ -366,9 +368,9 @@ nav{position:relative;align-items:center;}
     </div>
     <label class="field-label">Script Chunein</label>
     <div class="chips" id="scriptChips">
-      <div class="chip active" data-v="Hindi (Devanagari lipi mein)">🇮🇳 हिंदी</div>
+      <div class="chip" data-v="Hindi (Devanagari lipi mein)">🇮🇳 हिंदी</div>
       <div class="chip" data-v="Urdu (Nastaliq script mein)">🌙 اُردو</div>
-      <div class="chip" data-v="Roman/Hinglish (English letters mein)">Aa Roman</div>
+      <div class="chip active" data-v="Roman/Hinglish (English letters mein)">Aa Roman</div>
       <div class="chip" data-v="Mixed (Hindi aur English dono mein)">🔀 Mixed</div>
     </div>
     <button class="gen-btn" id="genBtn">✨ Shayari Generate Karein</button>
@@ -818,7 +820,7 @@ function setTopic(val){
 }
 function setTopicTag(val){setTopic(val);setTimeout(generateShayari,500);}
 
-let script='Hindi (Devanagari lipi mein)';
+let script='Roman/Hinglish (English letters mein)';
 document.querySelectorAll('#scriptChips .chip').forEach(c=>{
   c.addEventListener('click',()=>{
     document.querySelectorAll('#scriptChips .chip').forEach(x=>x.classList.remove('active'));
@@ -941,8 +943,34 @@ const output=document.getElementById('output');
 const genBtn=document.getElementById('genBtn');
 let lastCouplets=[];
 
+/* ===== AI GENERATION =====
+   Ab key yahan nahi hai — request /api/generate (Vercel serverless function) ko jaati hai,
+   jo apni taraf se Vercel ke Environment Variables se key uthakar Gemini ko call karta hai.
+   Isliye browser ya GitHub mein key kabhi visible nahi hoti. */
+
+function scriptInstruction(s){
+  if(s.includes('Hindi'))return 'Sirf Hindi Devanagari script mein likho.';
+  if(s.includes('Urdu'))return 'Sirf Urdu Nastaliq script mein likho.';
+  if(s.includes('Mixed'))return 'Hindi aur English dono mila kar (mixed script) likho.';
+  return 'Sirf Roman/Hinglish (English letters) mein likho, jaise WhatsApp par Hindi likhte hain.';
+}
+
+async function fetchFromGemini(topic,tone,linesVal){
+  const prompt=`Tum ek expert Hindi/Urdu shayar ho. Topic "${topic}" par, "${tone}" tone mein, ${linesVal} ki ek original shayari likho. ${scriptInstruction(script)} Sirf shayari ka text do, koi extra explanation, heading ya quotes nahi.`;
+  const res=await fetch('/api/generate',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({prompt})
+  });
+  if(!res.ok)throw new Error('API error '+res.status);
+  const data=await res.json();
+  if(!data.text)throw new Error('Empty response');
+  return data.text;
+}
+
 function generateShayari(){
   const topic=topicSel.value==='custom'?(document.getElementById('customTopic').value||'zindagi'):topicSel.value;
+  const tone=document.getElementById('tone').value;
   const key=mapTopicToKey(topicSel.value,document.getElementById('customTopic').value);
   const linesVal=document.getElementById('lines').value;
   const n=linesVal.includes('2')?1:linesVal.includes('4')?2:linesVal.includes('6')?3:4;
@@ -952,14 +980,20 @@ function generateShayari(){
   output.innerHTML='<span class="placeholder-txt">Shayari taiyaar ho rahi hai...</span>';
   document.getElementById('triView').classList.remove('show');
 
-  setTimeout(()=>{
+  fetchFromGemini(topic,tone,linesVal).then(text=>{
+    lastCouplets=[{hi:text,ur:text,ro:text}];
+    output.textContent=text;
+    genBtn.disabled=false; genBtn.textContent='✨ Shayari Generate Karein';
+  }).catch(()=>{
+    /* Agar API fail ho jaaye (galat key, no internet, quota khatam) to
+       local shayari bank se fallback ho jaata hai — user ko blank screen kabhi nahi dikhta */
     const pool=BANK[key]||BANK.general;
     const couplets=pickRandomCouplets(pool,n);
     lastCouplets=couplets;
     const text=couplets.map(c=>renderCouplet(c,script)).join('\n\n');
     output.textContent=text;
     genBtn.disabled=false; genBtn.textContent='✨ Shayari Generate Karein';
-  },600);
+  });
 }
 
 genBtn.addEventListener('click',generateShayari);
@@ -1021,16 +1055,16 @@ document.getElementById('dlBtn').addEventListener('click',()=>{
   const c=document.createElement('canvas');c.width=1000;c.height=650;
   const ctx=c.getContext('2d');
   const grad=ctx.createLinearGradient(0,0,1000,650);
-  grad.addColorStop(0,'#F6EEDF');grad.addColorStop(1,'#EDE1C8');
+  grad.addColorStop(0,'#FFFFFF');grad.addColorStop(1,'#EAF4FC');
   ctx.fillStyle=grad;ctx.fillRect(0,0,1000,650);
-  ctx.strokeStyle='rgba(184,134,46,0.5)';ctx.lineWidth=2;ctx.strokeRect(24,24,952,602);
-  ctx.fillStyle='rgba(36,19,18,0.05)';
+  ctx.strokeStyle='rgba(14,165,233,0.5)';ctx.lineWidth=2;ctx.strokeRect(24,24,952,602);
+  ctx.fillStyle='rgba(22,35,46,0.05)';
   for(let y=110;y<600;y+=38){ctx.fillRect(60,y,880,1);}
-  ctx.fillStyle='#3A0E13';ctx.font='bold 28px serif';ctx.fillText('✦ AI Shayari Generator',60,66);
-  ctx.fillStyle='#5C1A21';ctx.font='26px serif';
+  ctx.fillStyle='#075985';ctx.font='bold 28px serif';ctx.fillText('✦ AI Shayari Generator',60,66);
+  ctx.fillStyle='#0284C7';ctx.font='26px serif';
   const lines=t.split('\n');let y=150;
   lines.forEach(l=>{if(l.trim()){ctx.fillText(l,70,y);y+=40;}else{y+=20;}});
-  ctx.fillStyle='#B8862E';ctx.font='14px sans-serif';ctx.fillText('ai-shayari-generator.vercel.app',60,615);
+  ctx.fillStyle='#0EA5E9';ctx.font='14px sans-serif';ctx.fillText('ai-shayari-generator.vercel.app',60,615);
   const a=document.createElement('a');a.download='shayari.png';a.href=c.toDataURL();a.click();
 });
 
