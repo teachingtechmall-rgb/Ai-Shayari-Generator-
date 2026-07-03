@@ -29,18 +29,22 @@ export default async function handler(req, res) {
     });
 
     if (!geminiRes.ok) {
-      return res.status(geminiRes.status).json({ error: 'Gemini API error' });
+      const errBody = await geminiRes.text();
+      console.error('Gemini API error:', geminiRes.status, errBody);
+      return res.status(geminiRes.status).json({ error: 'Gemini API error', detail: errBody });
     }
 
     const data = await geminiRes.json();
     const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (!text) {
-      return res.status(502).json({ error: 'Empty response from Gemini' });
+      console.error('Gemini empty response:', JSON.stringify(data));
+      return res.status(502).json({ error: 'Empty response from Gemini', detail: JSON.stringify(data) });
     }
 
     return res.status(200).json({ text: text.trim() });
   } catch (err) {
-    return res.status(500).json({ error: 'Server error' });
+    console.error('Server error:', err.message);
+    return res.status(500).json({ error: 'Server error', detail: err.message });
   }
 }
