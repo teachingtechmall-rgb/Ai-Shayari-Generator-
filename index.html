@@ -67,16 +67,16 @@ select:focus,input[type=text]:focus{border-color:var(--maroon);}
 .shayari-text{font-family:'Tiro Devanagari Hindi',serif;font-size:21px;line-height:36px;white-space:pre-wrap;color:var(--maroon-deep);min-height:36px;margin-top:6px;}
 .shayari-text.urdu-mode{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:26px;line-height:46px;}
 .placeholder-txt{color:#6B8CA3;font-size:15px;font-style:italic;font-family:'Manrope',sans-serif;}
-.actions{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap;}
-.act-btn{border:1.5px solid var(--line);background:#fff;padding:9px 15px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;color:#4A6178;transition:.15s;}
+.actions{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap;justify-content:center;}
+.act-btn{border:1.5px solid var(--line);background:#fff;padding:10px 16px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;color:#4A6178;transition:.15s;flex:1 1 auto;min-width:110px;text-align:center;}
 .act-btn:hover{border-color:var(--maroon);color:var(--maroon);background:#EAF6FD;}
 
 /* API KEY BANNER */
 
 /* SECTIONS */
-section{position:relative;z-index:1;padding:52px 0;border-top:1px solid var(--line);}
-h2{font-family:'Tiro Devanagari Hindi',serif;font-size:28px;color:var(--maroon-deep);margin-bottom:8px;}
-.section-sub{color:#4A6178;font-size:15px;margin-bottom:26px;}
+section{position:relative;z-index:1;padding:56px 0;border-top:1px solid var(--line);}
+h2{font-family:'Tiro Devanagari Hindi',serif;font-size:28px;color:var(--maroon-deep);margin-bottom:14px;line-height:1.3;}
+.section-sub{color:#4A6178;font-size:15px;margin-bottom:30px;line-height:1.6;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;}
 .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px;}
 .card .icon{font-size:26px;margin-bottom:10px;}
@@ -84,8 +84,8 @@ h2{font-family:'Tiro Devanagari Hindi',serif;font-size:28px;color:var(--maroon-d
 .card p{font-size:14px;color:#445A6B;line-height:1.6;}
 
 /* KEYWORD GRID */
-.kw-section h2{margin-bottom:6px;}
-.kw-intro{font-size:15px;color:#4A6178;margin-bottom:22px;}
+.kw-section h2{margin-bottom:12px;}
+.kw-intro{font-size:15px;color:#4A6178;margin-bottom:26px;line-height:1.6;}
 .kw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
 .kw-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;transition:.2s;}
 .kw-card:hover{border-color:var(--maroon);background:#EAF6FD;}
@@ -173,10 +173,10 @@ nav{position:relative;align-items:center;}
 }
 
 /* SHAYARI OF THE DAY */
-.sotd{background:linear-gradient(135deg,var(--maroon-deep),var(--maroon));color:#EAF6FD;border-radius:18px;padding:26px 24px;margin:0 0 54px;position:relative;overflow:hidden;}
-.sotd::after{content:"🪶";position:absolute;right:18px;top:14px;font-size:40px;opacity:.18;}
-.sotd .tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.5px;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:999px;margin-bottom:12px;}
-.sotd .txt{font-family:'Tiro Devanagari Hindi',serif;font-size:19px;line-height:32px;max-width:600px;}
+.sotd{background:linear-gradient(135deg,var(--maroon-deep),var(--maroon));color:#FFFFFF;border-radius:18px;padding:28px 26px;margin:0 0 54px;position:relative;overflow:hidden;box-shadow:0 20px 44px -24px rgba(2,84,135,.55);}
+.sotd::after{content:"🪶";position:absolute;right:20px;top:16px;font-size:40px;opacity:.15;}
+.sotd .tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.5px;color:#FFFFFF;background:rgba(255,255,255,.22);padding:5px 14px;border-radius:999px;margin-bottom:14px;}
+.sotd .txt{font-family:'Tiro Devanagari Hindi',serif;font-size:19px;line-height:34px;max-width:600px;color:#FFFFFF;}
 
 /* CATEGORY PAGES */
 .cat-section{scroll-margin-top:80px;}
@@ -209,7 +209,7 @@ nav{position:relative;align-items:center;}
 .fav-empty{font-size:13px;color:#7FA0B5;font-style:italic;}
 
 /* TRI-SCRIPT VIEW */
-.tri-toggle{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#3E6E8E;margin:10px 0 4px;cursor:pointer;user-select:none;}
+.tri-toggle{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;font-weight:700;color:#3E6E8E;margin:20px 0 4px;padding-top:16px;border-top:1px dashed var(--line);cursor:pointer;user-select:none;}
 .tri-view{display:none;gap:12px;margin-top:14px;}
 .tri-view.show{display:grid;grid-template-columns:1fr;gap:12px;}
 .tri-block{background:var(--paper-dark);border-radius:10px;padding:12px 14px;font-size:13.5px;}
@@ -333,7 +333,7 @@ nav{position:relative;align-items:center;}
           <option value="Intezaar aur Yaad (Waiting & Longing)" data-key="intezaar">🕰️ Intezaar / Yaad</option>
           <option value="Ishq aur Mohabbat (Romantic Love)" data-key="love">🌹 Ishq / Romance</option>
           <option value="Tyohar aur Jashn (Festivals)" data-key="festive">🎉 Tyohar / Jashn</option>
-          <option value="Deshbhakti (Patriotism)" data-key="deshbhakti">🇮🇳 Deshbhakti</option>
+          <option value="Deshbhakti (Patriotism)" data-key="festive">🇮🇳 Deshbhakti</option>
           <option value="Barish aur Mausam (Rain & Season)" data-key="barish">🌧️ Barish / Mausam</option>
           <option value="Attitude aur Khuddari (Bold Attitude)" data-key="attitude">😎 Attitude</option>
           <option value="Kamyabi aur Success (Achievement)" data-key="success">🏆 Kamyabi / Success</option>
@@ -421,65 +421,95 @@ nav{position:relative;align-items:center;}
   <h2>🔍 Popular Shayari Topics — Click Karein</h2>
   <p class="kw-intro">In popular <strong>AI shayari generator</strong> topics mein se koi bhi click karein — tool automatically us topic par shayari generate kar dega.</p>
   <div class="kw-grid">
-    <div class="kw-card" onclick="setTopic('Pyaar aur Mohabbat (Love)')">
+    <div class="kw-card" onclick="setTopicTag('Pyaar aur Mohabbat (Love)')">
       <h4>❤️ Love Shayari AI</h4>
       <p>Mohabbat, dil, aankhein, judai</p>
       <span class="kw-tag">love shayari generator</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Dosti aur Yaarana (Friendship)')">
+    <div class="kw-card" onclick="setTopicTag('Dosti aur Yaarana (Friendship)')">
       <h4>🤝 Dosti Shayari</h4>
       <p>Yaar, dostana, yaarana</p>
       <span class="kw-tag">dosti shayari ai</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Dard aur Judai (Sadness & Separation)')">
+    <div class="kw-card" onclick="setTopicTag('Dard aur Judai (Sadness & Separation)')">
       <h4>💔 Sad Shayari AI</h4>
       <p>Dard, aansu, gham, judai</p>
       <span class="kw-tag">sad shayari generator</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Motivational aur Khudi (Self-Motivation)')">
+    <div class="kw-card" onclick="setTopicTag('Motivational aur Khudi (Self-Motivation)')">
       <h4>🔥 Motivational Shayari</h4>
       <p>Himmat, hausla, kamyabi</p>
       <span class="kw-tag">motivational shayari</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Bewafaai aur Dhoka (Betrayal)')">
+    <div class="kw-card" onclick="setTopicTag('Bewafaai aur Dhoka (Betrayal)')">
       <h4>😔 Bewafaai Shayari</h4>
       <p>Dhoka, fareb, rooth jaana</p>
       <span class="kw-tag">bewafaai shayari ai</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Maa-Baap aur Ghar (Parents & Home)')">
+    <div class="kw-card" onclick="setTopicTag('Maa-Baap aur Ghar (Parents & Home)')">
       <h4>🙏 Maa-Baap Shayari</h4>
       <p>Ammi, abbu, ghar ki yaad</p>
       <span class="kw-tag">maa ke liye shayari</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Intezaar aur Yaad (Waiting & Longing)')">
+    <div class="kw-card" onclick="setTopicTag('Intezaar aur Yaad (Waiting & Longing)')">
       <h4>🕰️ Yaad Shayari</h4>
       <p>Yaad, intezaar, teri baatein</p>
       <span class="kw-tag">yaad shayari generator</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Barish aur Mausam (Rain & Season)')">
+    <div class="kw-card" onclick="setTopicTag('Barish aur Mausam (Rain & Season)')">
       <h4>🌧️ Barish Shayari</h4>
       <p>Barish, sawan, mausam</p>
       <span class="kw-tag">barish ki shayari ai</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Deshbhakti (Patriotism)')">
+    <div class="kw-card" onclick="setTopicTag('Deshbhakti (Patriotism)')">
       <h4>🇮🇳 Deshbhakti Shayari</h4>
       <p>Watan, azadi, tiranga</p>
       <span class="kw-tag">deshbhakti shayari</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Tyohar aur Jashn (Festivals)')">
+    <div class="kw-card" onclick="setTopicTag('Tyohar aur Jashn (Festivals)')">
       <h4>🎉 Tyohar Shayari</h4>
       <p>Eid, Diwali, Holi</p>
       <span class="kw-tag">festival shayari ai</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Ishq aur Mohabbat (Romantic Love)')">
+    <div class="kw-card" onclick="setTopicTag('Ishq aur Mohabbat (Romantic Love)')">
       <h4>🌹 Romantic Shayari</h4>
       <p>Ishq, mohabbat, romance</p>
       <span class="kw-tag">romantic shayari generator</span>
     </div>
-    <div class="kw-card" onclick="setTopic('Zindagi aur Hikmat (Life & Wisdom)')">
+    <div class="kw-card" onclick="setTopicTag('Zindagi aur Hikmat (Life & Wisdom)')">
       <h4>🌿 Zindagi Shayari</h4>
       <p>Zindagi, waqt, sachchi baat</p>
       <span class="kw-tag">zindagi shayari ai</span>
+    </div>
+    <div class="kw-card" onclick="setTopicTag('Attitude aur Khuddari (Bold Attitude)')">
+      <h4>😎 Attitude Shayari</h4>
+      <p>Khuddari, bebaak, nidar</p>
+      <span class="kw-tag">attitude shayari ai</span>
+    </div>
+    <div class="kw-card" onclick="setTopicTag('Kamyabi aur Success (Achievement)')">
+      <h4>🏆 Success Shayari</h4>
+      <p>Kamyabi, mehnat, junoon</p>
+      <span class="kw-tag">success shayari generator</span>
+    </div>
+    <div class="kw-card" onclick="setTopicTag('Maafi aur Sorry (Apology)')">
+      <h4>🙏 Sorry Shayari</h4>
+      <p>Maafi, nadamat, rishta</p>
+      <span class="kw-tag">sorry shayari ai</span>
+    </div>
+    <div class="kw-card" onclick="setTopicTag('Janamdin Mubarak (Birthday Wishes)')">
+      <h4>🎂 Birthday Shayari</h4>
+      <p>Janamdin, dua, jashn</p>
+      <span class="kw-tag">birthday shayari generator</span>
+    </div>
+    <div class="kw-card" onclick="setTopicTag('Shaadi aur Rishta (Wedding & Relationship)')">
+      <h4>💍 Shaadi Shayari</h4>
+      <p>Rishta, waade, milan</p>
+      <span class="kw-tag">shaadi shayari ai</span>
+    </div>
+    <div class="kw-card" onclick="setTopicTag('Tanhaai aur Akelapan (Loneliness)')">
+      <h4>🌙 Tanhaai Shayari</h4>
+      <p>Akelapan, khamoshi, sukoon</p>
+      <span class="kw-tag">tanhaai shayari ai</span>
     </div>
   </div>
 </section>
@@ -1059,23 +1089,30 @@ function setSeal(source){
 
 async function fetchFromGemini(topic,tone,linesVal,key,totalLines){
   const feeling=FEELING[key]||FEELING.general;
-  const prompt=`Tum ek mash'hoor, ustaad shayar ho — Gulzar, Jaun Elia aur Rahat Indori ke andaaz jaisa gehra aur asardaar likhte ho. Tumhari shayari sunke log "haay", "wah wah", "kya baat hai" bol uthte hain, kyunki har lafz seedha dil mein utarta hai.
+  const pool=BANK[key]||BANK.general;
+  const examples=pickRandomCouplets(pool,2).map(c=>renderCouplet(c,script)).join('\n---\n');
+  const prompt=`Tum ek mash'hoor, ustaad shayar ho — Gulzar, Jaun Elia, Rahat Indori aur Mirza Ghalib jaise shayaron ka baraso ka riyaz tumhari rag-rag mein hai. Purane ustaad shayar mahino tak ek-ek lafz tarashte the taaki sher seedha dil mein utar jaaye — tumhe bhi wahi mehnat karni hai, chahe seconds mein hi karni ho.
 
 Topic: "${topic}"
 Tone: "${tone}"
-Is topic ka ehsaas: ${feeling}
+Is topic ka asli ehsaas: ${feeling}
+
+Neeche isi topic ke 2 achhe sher diye hain — sirf QUALITY aur ANDAAZ samajhne ke liye (inhe copy mat karna, bilkul naya aur original likhna):
+"""
+${examples}
+"""
 
 ⚠️ SABSE ZAROORI NIYAM — LAMBAI:
-Total sirf aur sirf ${totalLines} lines likhni hain, na ek line kam na ek zyada. Ye ek chhoti shayari/sher hai, poori ghazal ya nazm NAHI likhni. Agar tum isse zyada likhoge to jawab reject ho jayega.
+Total sirf aur sirf ${totalLines} lines likhni hain, na ek line kam na ek zyada. Ye ek chhoti shayari hai, poori ghazal ya nazm NAHI likhni. Isse zyada likha to jawab reject ho jayega.
 
-Baaki usool:
-1. Koi bhi seedhi-saadi, filmy ya generic line mat likho (jaise "dil mein basi ho tum" jaisi ghisi-piti lines avoid karo).
-2. Har sher mein ek strong imagery, metaphor ya tashbeeh (comparison) ho — jaise mausam, chaand, khat, chai, sadkein, khamoshi, aaina, jaise rozmarra ki cheezon ko emotion se jodo.
-3. Alfaaz saadā rakho lekin maqsad gehra ho — jaise kam se kam lafzon mein zyada se zyada dard ya khushi jhalke.
+Quality ke usool (upar wale examples jaisa level chahiye):
+1. Koi bhi seedhi-saadi, filmy ya ghisi-piti line mat likho.
+2. Har sher mein ek strong imagery ya tashbeeh (comparison) ho — rozmarra ki cheezon (mausam, chaand, khat, chai, khamoshi, aaina) ko emotion se jodo.
+3. Kam se kam lafzon mein zyada se zyada gehrai — har lafz sochkar chuno, bharti ke lafz mat daalo.
 4. Akhri line mein ek chhota sa twist ya "punch" ho jo padhne wale ko ek pal ke liye rok de.
 5. ${scriptInstruction(script)}
 
-Sirf shayari ka final text do (bilkul ${totalLines} lines) — koi explanation, heading, quotes, numbering, ya intro-outro nahi.`;
+Sirf final shayari do (bilkul ${totalLines} lines) — koi explanation, heading, quotes, numbering, ya intro-outro nahi.`;
   const res=await fetch('/api/generate',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
