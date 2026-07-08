@@ -220,4 +220,986 @@ nav{position:relative;align-items:center;}
 .input-with-voice{display:flex;gap:8px;}
 .input-with-voice input{flex:1;}
 
-@media(max-width:600px){h1{font-size:28px;}.hero p.sub{font-size:15px;}.shayari-text{font-size:18px;}.fav-panel{width:88vw;right:6vw;}.wrap{padding:0 18px;}.tool-card
+@media(max-width:600px){h1{font-size:28px;}.hero p.sub{font-size:15px;}.shayari-text{font-size:18px;}.fav-panel{width:88vw;right:6vw;}.wrap{padding:0 18px;}.tool-card{padding:20px 16px;}.result-card{padding:22px 16px;}.ex-card{padding:18px 14px;}}
+@media(max-width:400px){.wrap{padding:0 16px;}}
+</style>
+</head>
+<body>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>Hum cookies use karte hain aapka experience behtar banane ke liye. <a href="#" onclick="showPopup('privacyPopup')">Privacy Policy</a> padhein.</p>
+  <div class="cookie-btns">
+    <button class="cookie-accept" onclick="acceptCookie()">✓ Accept</button>
+    <button class="cookie-decline" onclick="declineCookie()">Decline</button>
+  </div>
+</div>
+
+<!-- PRIVACY POLICY POPUP -->
+<div class="overlay" id="privacyPopup">
+  <div class="popup">
+    <div class="popup-header"><h3>🔒 Privacy Policy</h3><button class="popup-close" onclick="closePopup('privacyPopup')">✕</button></div>
+    <div class="popup-body">
+      <p><strong>Last updated:</strong> 2025</p>
+      <p>AI Shayari Generator ("hum", "hamara") aapki privacy ka poora dhyan rakhta hai. Ye page clearly batata hai ki hum kya data collect karte hain aur kaise use karte hain.</p>
+      <h4>1. Data Collection</h4>
+      <p>Hum koi personal account data store nahi karte. Aapki dark/light mode preference sirf current session ke liye browser mein rakhi jaati hai.</p>
+      <h4>2. AI Processing</h4>
+      <p>Shayari generation ke liye jab bhi backend AI service (jaise Google Gemini) integrate ki jaati hai, sirf aapka chuna hua topic/mood us service ko bheja jaata hai — koi personal identifier nahi. Us service ki apni privacy policy bhi apply ho sakti hai.</p>
+      <h4>3. Cookies</h4>
+      <p>Hum sirf functional cookies use karte hain — ye sirf aapki settings remember karne ke liye hain. Koi tracking ya advertising cookies nahi hain.</p>
+      <h4>4. Third-party Links</h4>
+      <p>Hamari website par kuch third-party links ho sakte hain. Unki privacy policies hamare control mein nahi hain.</p>
+      <h4>5. Contact</h4>
+      <p>Koi bhi sawaal ho to hamse contact karein. Hum aapki baat sunne ke liye hamesha taiyaar hain.</p>
+    </div>
+    <div class="popup-footer"><button onclick="closePopup('privacyPopup')">Samajh Gaya — Band Karein</button></div>
+  </div>
+</div>
+
+<!-- TERMS POPUP -->
+<div class="overlay" id="termsPopup">
+  <div class="popup">
+    <div class="popup-header"><h3>📋 Terms & Conditions</h3><button class="popup-close" onclick="closePopup('termsPopup')">✕</button></div>
+    <div class="popup-body">
+      <p><strong>Effective:</strong> 2025</p>
+      <h4>1. Free Tool</h4>
+      <p>AI Shayari Generator ek free online tool hai. Iska use karke aap in terms ko accept karte hain.</p>
+      <h4>2. Service Availability</h4>
+      <p>Hum tool ko hamesha available rakhne ki koshish karte hain, lekin maintenance ya technical issues ki wajah se kabhi downtime ho sakta hai.</p>
+      <h4>3. Content Usage</h4>
+      <p>Generated shayari personal use ke liye free hai. Commercial use ke liye content verify karna aapki zimmedari hai.</p>
+      <h4>4. No Warranty</h4>
+      <p>Hum generated content ki accuracy ya quality guarantee nahi karte. AI se generated shayari sometimes imperfect ho sakti hai.</p>
+      <h4>5. Prohibited Use</h4>
+      <p>Hate speech, harassment ya illegal content generate karne ke liye is tool ka use strictly prohibited hai.</p>
+      <h4>6. Intellectual Property</h4>
+      <p>Is website ka design, code aur branding hamara intellectual property hai. Copy ya reproduce nahi kiya ja sakta.</p>
+      <h4>7. Changes</h4>
+      <p>Hum in terms ko kabhi bhi update kar sakte hain. Continued use means aap updated terms accept karte hain.</p>
+    </div>
+    <div class="popup-footer"><button onclick="closePopup('termsPopup')">Accept & Band Karein</button></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap header-inner">
+    <div class="brand"><span class="dot"></span> AI Shayari Generator</div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
+    <nav id="mainNav">
+      <a href="#tool">Tool</a>
+      <div class="nav-drop" id="catDrop">
+        <span>Categories ▾</span>
+        <div class="nav-drop-menu">
+          <a href="#love-shayari-generator">❤️ Love Shayari</a>
+          <a href="#sad-shayari-generator">💔 Sad Shayari</a>
+          <a href="#dosti-shayari-generator">🤝 Dosti Shayari</a>
+          <a href="#motivational-shayari-generator">🔥 Motivational Shayari</a>
+          <a href="#2-line-shayari-generator">✍️ 2-Line Shayari</a>
+        </div>
+      </div>
+      <a href="#guide">Blog / Guide</a>
+      <a href="#faq">FAQ</a>
+      <a href="#about-us">About</a>
+      <a href="#contact-us">Contact</a>
+      <a href="https://ai-poetry-generator.vercel.app" target="_blank">Poetry →</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="wrap hero" id="tool">
+  <span class="eyebrow"><span class="badge">FREE</span> AI Powered · No Sign-up · Instant</span>
+  <h1>दिल की बात, शायरी में —<br>AI से सेकंड्स में बनाएं</h1>
+  <p class="sub">Best <strong>AI Shayari Generator</strong> online — pyaar, dosti, dard, judai, motivational ya koi bhi topic chuno aur seconds mein original Hindi, Urdu ya Roman shayari pao.</p>
+</div>
+
+<!-- TOOL -->
+<div class="wrap">
+  <div class="tool-card">
+    <div class="row">
+      <div class="field">
+        <label class="field-label" for="topic">Shayari Ka Topic / Mood</label>
+        <select id="topic">
+          <option value="Pyaar aur Mohabbat (Love)">❤️ Pyaar / Mohabbat</option>
+          <option value="Dosti aur Yaarana (Friendship)">🤝 Dosti / Yaarana</option>
+          <option value="Dard aur Judai (Sadness & Separation)">💔 Dard / Judai</option>
+          <option value="Zindagi aur Hikmat (Life & Wisdom)">🌿 Zindagi / Hikmat</option>
+          <option value="Maa-Baap aur Ghar (Parents & Home)">🙏 Maa-Baap</option>
+          <option value="Motivational aur Khudi (Self-Motivation)">🔥 Motivational</option>
+          <option value="Bewafaai aur Dhoka (Betrayal)">😔 Bewafaai / Dhoka</option>
+          <option value="Intezaar aur Yaad (Waiting & Longing)">🕰️ Intezaar / Yaad</option>
+          <option value="Ishq aur Mohabbat (Romantic Love)">🌹 Ishq / Romance</option>
+          <option value="Tyohar aur Jashn (Festivals)">🎉 Tyohar / Jashn</option>
+          <option value="Deshbhakti (Patriotism)">🇮🇳 Deshbhakti</option>
+          <option value="Barish aur Mausam (Rain & Season)">🌧️ Barish / Mausam</option>
+          <option value="custom">✍️ Apna Topic Likho</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label" for="lines">Kitni Lines</label>
+        <select id="lines">
+          <option value="exactly 2 lines">2 Line Shayari</option>
+          <option value="exactly 4 lines" selected>4 Line Shayari</option>
+          <option value="exactly 6 lines (ghazal style)">6 Line (Ghazal)</option>
+          <option value="exactly 8 lines (poem style)">8 Lines (Nazm)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label" for="tone">Andaaz / Tone</label>
+        <select id="tone">
+          <option value="romantic aur pyaara">Romantic</option>
+          <option value="dard bhari aur ghamgeen">Dard Bhara</option>
+          <option value="motivational aur josh bhari">Motivational</option>
+          <option value="funny aur mazedar">Funny / Mazedar</option>
+          <option value="classical Urdu andaaz mein">Classical Urdu</option>
+        </select>
+      </div>
+    </div>
+    <div class="row" id="customRow" style="display:none;">
+      <div class="field">
+        <label class="field-label">Apna Khaas Topic Likho</label>
+        <div class="input-with-voice">
+          <input type="text" id="customTopic" placeholder="jaise: ammi ki yaad, barish mein bheegna, dost ki rukhsati...">
+          <button type="button" class="voice-btn" id="voiceBtn" title="Bol kar topic batayein">🎤</button>
+        </div>
+      </div>
+    </div>
+    <label class="field-label">Script Chunein</label>
+    <div class="chips" id="scriptChips">
+      <div class="chip" data-v="Hindi (Devanagari lipi mein)">🇮🇳 हिंदी</div>
+      <div class="chip" data-v="Urdu (Nastaliq script mein)">🌙 اُردو</div>
+      <div class="chip active" data-v="Roman/Hinglish (English letters mein)">Aa Roman</div>
+      <div class="chip" data-v="Mixed (Hindi aur English dono mein)">🔀 Mixed</div>
+    </div>
+    <button class="gen-btn" id="genBtn">✨ Shayari Generate Karein</button>
+    <div class="result-card">
+      <span class="seal" id="resultSeal">🪶 AI Generated</span>
+      <div class="shayari-text" id="output"><span class="placeholder-txt">Upar topic aur script chunkar "Generate" dabayein — AI aapke liye original shayari likh dega...</span></div>
+    </div>
+    <div class="actions">
+      <button class="act-btn" id="copyBtn">📋 Copy</button>
+      <button class="act-btn" id="waBtn">💬 WhatsApp</button>
+      <button class="act-btn" id="igBtn">📸 Instagram</button>
+      <button class="act-btn" id="dlBtn">⬇️ Image Download</button>
+      <button class="act-btn" id="regenBtn">🔁 Dobara Try</button>
+      <button class="act-btn" id="favAddBtn">🤍 Save</button>
+    </div>
+    <div class="tri-toggle" id="triToggle">🔀 Ek saath teeno scripts mein dekhein (Hindi + Urdu + Roman)</div>
+    <div class="tri-view" id="triView">
+      <div class="tri-block"><b>Hindi</b><span id="triHi"></span></div>
+      <div class="tri-block"><b>Urdu</b><span id="triUr" style="font-family:'Noto Nastaliq Urdu',serif;direction:rtl;display:block;font-size:17px;"></span></div>
+      <div class="tri-block"><b>Roman</b><span id="triRo"></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SHAYARI OF THE DAY -->
+<div class="wrap">
+  <div class="sotd">
+    <span class="tag">🌟 Aaj Ki Shayari — Shayari of the Day</span>
+    <div class="txt" id="sotdText">Loading...</div>
+  </div>
+</div>
+
+<!-- FAVORITES FLOATING PANEL -->
+<button class="fav-btn" id="favBtn">🤍 Saved <span class="fav-count" id="favCount">0</span></button>
+<div class="fav-panel" id="favPanel">
+  <div id="favList"><p class="fav-empty">Abhi koi shayari save nahi ki. "🤍 Save" button dabakar apni pasandida shayari yahan rakhein.</p></div>
+</div>
+
+<!-- KEYWORD QUICK ACCESS -->
+<section class="wrap kw-section">
+  <h2>🔍 Popular Shayari Topics — Click Karein</h2>
+  <p class="kw-intro">In popular <strong>AI shayari generator</strong> topics mein se koi bhi click karein — tool automatically us topic par shayari generate kar dega.</p>
+  <div class="kw-grid">
+    <div class="kw-card" onclick="setTopic('Pyaar aur Mohabbat (Love)')">
+      <h4>❤️ Love Shayari AI</h4>
+      <p>Mohabbat, dil, aankhein, judai</p>
+      <span class="kw-tag">love shayari generator</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Dosti aur Yaarana (Friendship)')">
+      <h4>🤝 Dosti Shayari</h4>
+      <p>Yaar, dostana, yaarana</p>
+      <span class="kw-tag">dosti shayari ai</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Dard aur Judai (Sadness & Separation)')">
+      <h4>💔 Sad Shayari AI</h4>
+      <p>Dard, aansu, gham, judai</p>
+      <span class="kw-tag">sad shayari generator</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Motivational aur Khudi (Self-Motivation)')">
+      <h4>🔥 Motivational Shayari</h4>
+      <p>Himmat, hausla, kamyabi</p>
+      <span class="kw-tag">motivational shayari</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Bewafaai aur Dhoka (Betrayal)')">
+      <h4>😔 Bewafaai Shayari</h4>
+      <p>Dhoka, fareb, rooth jaana</p>
+      <span class="kw-tag">bewafaai shayari ai</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Maa-Baap aur Ghar (Parents & Home)')">
+      <h4>🙏 Maa-Baap Shayari</h4>
+      <p>Ammi, abbu, ghar ki yaad</p>
+      <span class="kw-tag">maa ke liye shayari</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Intezaar aur Yaad (Waiting & Longing)')">
+      <h4>🕰️ Yaad Shayari</h4>
+      <p>Yaad, intezaar, teri baatein</p>
+      <span class="kw-tag">yaad shayari generator</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Barish aur Mausam (Rain & Season)')">
+      <h4>🌧️ Barish Shayari</h4>
+      <p>Barish, sawan, mausam</p>
+      <span class="kw-tag">barish ki shayari ai</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Deshbhakti (Patriotism)')">
+      <h4>🇮🇳 Deshbhakti Shayari</h4>
+      <p>Watan, azadi, tiranga</p>
+      <span class="kw-tag">deshbhakti shayari</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Tyohar aur Jashn (Festivals)')">
+      <h4>🎉 Tyohar Shayari</h4>
+      <p>Eid, Diwali, Holi</p>
+      <span class="kw-tag">festival shayari ai</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Ishq aur Mohabbat (Romantic Love)')">
+      <h4>🌹 Romantic Shayari</h4>
+      <p>Ishq, mohabbat, romance</p>
+      <span class="kw-tag">romantic shayari generator</span>
+    </div>
+    <div class="kw-card" onclick="setTopic('Zindagi aur Hikmat (Life & Wisdom)')">
+      <h4>🌿 Zindagi Shayari</h4>
+      <p>Zindagi, waqt, sachchi baat</p>
+      <span class="kw-tag">zindagi shayari ai</span>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY: LOVE -->
+<section class="wrap cat-section" id="love-shayari-generator">
+  <h2>❤️ Love Shayari Generator — Pyaar Mein Doobi AI Shayari</h2>
+  <p class="section-sub">Kisi ka izhaar karna ho ya apne pyaar ko special mehsoos karana ho — ye <strong>love shayari AI</strong> tool khaas iske liye bana hai. Upar wale <a href="#tool">AI Shayari Generator</a> mein "Pyaar / Mohabbat" topic chunkar turant naye andaaz mein romantic shayari paayein.</p>
+  <div class="cat-grid">
+    <div class="cat-item">तुम्हारी एक झलक में जो मिला सुकून मुझे,<br>सारी उम्र की तलाश का जवाब मिला मुझे।</div>
+    <div class="cat-item">इश्क़ में हद से गुज़रना भी ज़रूरी है कभी,<br>वरना मोहब्बत अधूरी सी रह जाती है।</div>
+    <div class="cat-item">तेरी मुस्कान पे दुनिया लुटा दूँ मैं,<br>बस इतनी सी ख्वाहिश है, तू मेरा हो जाए।</div>
+    <div class="cat-item">नज़रों से नज़रें मिलीं तो वक़्त थम सा गया,<br>ये मोहब्बत है या कोई जादू, समझ न आया।</div>
+  </div>
+  <div class="cat-links"><a href="#sad-shayari-generator">💔 Sad Shayari →</a><a href="#dosti-shayari-generator">🤝 Dosti Shayari →</a><a href="#tool">✨ Apni Love Shayari Banayein</a></div>
+</section>
+
+<!-- CATEGORY: SAD -->
+<section class="wrap cat-section" id="sad-shayari-generator">
+  <h2>💔 Sad Shayari Generator — Dard Ko Alfaaz Dena</h2>
+  <p class="section-sub">Kabhi kabhi dil ka dard shabdon mein nahi aata — ye <strong>sad shayari generator</strong> aapke gham, judai aur tanhaai ko sahi alfaaz mein dhaal deta hai. "Dard / Judai" topic select karke abhi try karein.</p>
+  <div class="cat-grid">
+    <div class="cat-item">जो बात कहना चाहता था, कह न सका,<br>वो दर्द अब भी सीने में रहता है बिना कहे।</div>
+    <div class="cat-item">बिछड़ते वक़्त कुछ कहा नहीं गया,<br>अब हर लफ़्ज़ अधूरा सा लगता है।</div>
+    <div class="cat-item">आँसू छुपाना भी एक फ़न है दोस्तों,<br>हर कोई मुस्कुराते हुए रोना नहीं सीखता।</div>
+    <div class="cat-item">तन्हाई में भी उसकी याद आती है,<br>शायद मोहब्बत यूँही अधूरी रह जाती है।</div>
+  </div>
+  <div class="cat-links"><a href="#love-shayari-generator">❤️ Love Shayari →</a><a href="#motivational-shayari-generator">🔥 Motivational Shayari →</a><a href="#tool">✨ Apni Sad Shayari Banayein</a></div>
+</section>
+
+<!-- CATEGORY: DOSTI -->
+<section class="wrap cat-section" id="dosti-shayari-generator">
+  <h2>🤝 Dosti Shayari Generator — Yaarana Alfaaz Mein</h2>
+  <p class="section-sub">Sacchi dosti ke jazbaat ko celebrate karne ke liye <strong>dosti shayari generator</strong> use karein. Apne yaar-dost ko surprise dene ke liye "Dosti / Yaarana" topic chunein.</p>
+  <div class="cat-grid">
+    <div class="cat-item">दोस्त वो नहीं जो खुशी में याद आए,<br>दोस्त वो है जो तूफान में साथ आए।</div>
+    <div class="cat-item">यारों की महफ़िल में जो सुकून मिलता है,<br>वो किसी और जगह नहीं मिलता।</div>
+    <div class="cat-item">दोस्ती में हिसाब नहीं होता कभी,<br>बस साथ निभाने का जज़्बा होता है।</div>
+    <div class="cat-item">हर राह पर तेरा साथ मिला जो यारा,<br>ज़िंदगी का सफ़र आसान लगा।</div>
+  </div>
+  <div class="cat-links"><a href="#love-shayari-generator">❤️ Love Shayari →</a><a href="#2-line-shayari-generator">✍️ 2-Line Shayari →</a><a href="#tool">✨ Apni Dosti Shayari Banayein</a></div>
+</section>
+
+<!-- CATEGORY: MOTIVATIONAL -->
+<section class="wrap cat-section" id="motivational-shayari-generator">
+  <h2>🔥 Motivational Shayari Generator — Josh Aur Hausla</h2>
+  <p class="section-sub">Jab himmat kam pade, tab <strong>motivational shayari</strong> nayi ummeed jagati hai. Kamyabi, hausla aur khudi par based shayari ke liye "Motivational" topic chunein.</p>
+  <div class="cat-grid">
+    <div class="cat-item">गिरकर उठना तो सभी जानते हैं,<br>फन यह है कि मुस्कुराते हुए उठो।</div>
+    <div class="cat-item">मंज़िल मिले न मिले, ये कोशिश हमेशा जारी रहे,<br>हार कर बैठ जाना कभी मंज़ूर नहीं।</div>
+    <div class="cat-item">वक़्त बदलता है हर हाल को यारों,<br>बस हिम्मत से डटे रहना सीखो।</div>
+    <div class="cat-item">खुद पे यकीन रखो, रास्ता खुद बनेगा,<br>हर अंधेरे के बाद सवेरा ज़रूर आएगा।</div>
+  </div>
+  <div class="cat-links"><a href="#sad-shayari-generator">💔 Sad Shayari →</a><a href="#dosti-shayari-generator">🤝 Dosti Shayari →</a><a href="#tool">✨ Apni Motivational Shayari Banayein</a></div>
+</section>
+
+<!-- CATEGORY: 2-LINE -->
+<section class="wrap cat-section" id="2-line-shayari-generator">
+  <h2>✍️ 2 Line Shayari Generator — WhatsApp Status Ke Liye Perfect</h2>
+  <p class="section-sub">WhatsApp status aur Instagram caption ke liye chhoti, crisp <strong>2 line shayari</strong> sabse zyada pasand ki jaati hai. "Kitni Lines" mein "2 Line Shayari" chunkar turant paayein.</p>
+  <div class="cat-grid">
+    <div class="cat-item">मोहब्बत में हार भी जीत लगती है,<br>बस साथ तेरा हर बार अच्छा लगता है।</div>
+    <div class="cat-item">बारिश की हर बूँद मुझे याद दिलाती है,<br>वो तेरी बातें जो दिल में रह गई हैं।</div>
+    <div class="cat-item">माँ की दुआओं में एक ताकत है ऐसी,<br>जो रास्ते बंद हों उन्हें खोल देती है।</div>
+    <div class="cat-item">वतन की मिट्टी में जो खुशबू है यारों,<br>वो किसी जन्नत से कम नहीं लगती।</div>
+  </div>
+  <div class="cat-links"><a href="#love-shayari-generator">❤️ Love Shayari →</a><a href="#sad-shayari-generator">💔 Sad Shayari →</a><a href="#tool">✨ Apni 2-Line Shayari Banayein</a></div>
+</section>
+
+<!-- EXAMPLE SHAYARIS -->
+<section class="wrap" id="examples">
+  <h2>AI Shayari Examples — Naye Andaaz Mein</h2>
+  <p class="section-sub">Ye kuch sample shayaris hain jo <strong>AI shayari generator</strong> create kar sakta hai — bilkul original, naye alfaaz mein.</p>
+  <div class="shayari-examples">
+    <div class="ex-card">
+      <span class="topic-tag">❤️ Pyaar</span>
+      <div class="shayari" style="font-family:'Tiro Devanagari Hindi',serif;">तुम्हारी एक झलक में जो मिला सुकून मुझे,<br>सारी उम्र की तलाश का जवाब मिला मुझे।</div>
+    </div>
+    <div class="ex-card">
+      <span class="topic-tag">🤝 Dosti</span>
+      <div class="shayari" style="font-family:'Tiro Devanagari Hindi',serif;">दोस्त वो नहीं जो खुशी में याद आए,<br>दोस्त वो है जो तूफान में साथ आए।</div>
+    </div>
+    <div class="ex-card">
+      <span class="topic-tag">💔 Dard</span>
+      <div class="shayari" style="font-family:'Tiro Devanagari Hindi',serif;">जो बात कहना चाहता था, कह न सका,<br>वो दर्द अब भी सीने में रहता है बिना कहे।</div>
+    </div>
+    <div class="ex-card">
+      <span class="topic-tag">🔥 Motivational</span>
+      <div class="shayari" style="font-family:'Tiro Devanagari Hindi',serif;">गिरकर उठना तो सभी जानते हैं,<br>फन यह है कि मुस्कुराते हुए उठो।</div>
+    </div>
+    <div class="ex-card">
+      <span class="topic-tag">🙏 Maa</span>
+      <div class="shayari" style="font-family:'Tiro Devanagari Hindi',serif;">माँ की दुआओं में एक ताकत है ऐसी,<br>जो रास्ते बंद हों उन्हें खोल देती है।</div>
+    </div>
+    <div class="ex-card">
+      <span class="topic-tag">🌧️ Barish — Roman</span>
+      <div class="shayari">Barish ki har boond mujhe yaad dilati hai,<br>Woh teri baatein jo dil mein reh gayi hain.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="wrap" id="features">
+  <h2>Is AI Shayari Generator Mein Kya Khaas Hai</h2>
+  <p class="section-sub">Sirf ek aur generic tool nahi — yeh <a href="#tool">AI Shayari Generator</a> actually samajhta hai ki ek shayar kya chahta hai.</p>
+  <div class="cards">
+    <div class="card"><div class="icon">🖋️</div><h3>4 Script Options</h3><p>Hindi (Devanagari), Urdu (Nastaliq), Roman/Hinglish ya Mixed — aapki pasand ke hisaab se original shayari.</p></div>
+    <div class="card"><div class="icon">🎭</div><h3>5 Andaaz / Tones</h3><p>Romantic, dard bhara, motivational, funny ya classical Urdu andaaz — sab available hain.</p></div>
+    <div class="card"><div class="icon">📏</div><h3>2 se 8 Lines</h3><p>2-line shayari se lekar ghazal style 6-line aur nazm style 8-line tak, sab formats available.</p></div>
+    <div class="card"><div class="icon">🚀</div><h3>Instant AI Generation</h3><p>Google Gemini AI ke zariye seconds mein original, repetition-free shayari — har baar nayi.</p></div>
+    <div class="card"><div class="icon">📱</div><h3>WhatsApp Ready</h3><p>One-tap se copy karein ya seedha WhatsApp Status par share karein — koi formatting issue nahi.</p></div>
+    <div class="card"><div class="icon">🔓</div><h3>Bilkul Free</h3><p>Google Gemini ka free tier use karein — koi subscription nahi, koi hidden cost nahi.</p></div>
+  </div>
+</section>
+
+<!-- LONG CONTENT SEO BLOCK -->
+<section class="wrap">
+  <div class="content-block">
+    <h2>AI Shayari Generator Kya Hai Aur Kaise Kaam Karta Hai</h2>
+    <p><strong>AI Shayari Generator</strong> ek advanced online tool hai jo artificial intelligence — khaas taur par Google Gemini AI — ka istemal karke aapke liye original aur dil ko chhoone wali shayari likhta hai. Chahe aap ek <a href="#tool">Hindi shayari generator</a> dhundh rahe ho, <a href="#tool">Urdu shayari generator</a> ki talash mein ho, ya Roman/Hinglish mein whatsapp status ke liye kuch catchy chahiye — ye tool sab kuch kar sakta hai.</p>
+
+    <h3>AI Shayari Generator Kyon Zaroori Hai?</h3>
+    <p>Aksar hum mehsoos bahut kuch karte hain lekin alfaaz nahi milte. Kisi dost ko surprise dena ho, pyaar ka izhar karna ho, ya dard ko shabd dene ho — <strong>shayari banane wala app</strong> aapka kaam aasaan kar deta hai. Sirf topic choose karo, aur AI aapki jagah alfaaz dhundh leta hai.</p>
+    <p>Is <a href="#tool">free shayari generator online</a> ka use karke aap:</p>
+    <ul>
+      <li><strong>2 line shayari generator</strong> se WhatsApp status ke liye perfect chhoti shayari bana sakte ho</li>
+      <li><strong>4 line shayari AI</strong> se Instagram captions ke liye dil ki baat keh sakte ho</li>
+      <li><strong>Love shayari AI</strong> se apne pyaar ko special mehsoos kara sakte ho</li>
+      <li><strong>Dosti shayari generator</strong> se apne yaar ko surprise de sakte ho</li>
+      <li><strong>Sad shayari generator</strong> se apna dard alfaaz mein dhaal sakte ho</li>
+    </ul>
+
+    <h3>Google Gemini AI Kyon Istemal Kiya Gaya?</h3>
+    <p>Humne <strong>Google Gemini AI</strong> ko isliye choose kiya kyunki ye multilingual shayari mein sabse behtar results deta hai. Gemini Hindi, Urdu, Roman aur Mixed script sab mein natural aur original shayari likhta hai. Aur sabse acha? Gemini API ka free version itna powerful hai ki aapko kabhi bhi paisa dene ki zaroorat nahi padegi.</p>
+
+    <h3>AI Se Shayari Kaise Banayein — Step by Step</h3>
+    <p>Is <strong>AI shayari generator</strong> ko use karna bilkul simple hai. Upar wale tool mein topic choose karo — pyaar, dosti, dard, motivational ya koi bhi custom topic. Lines, script aur tone select karo, aur ek click mein original shayari tayaar. Koi sign-up, koi key, koi form nahi bharna padta. Generated <a href="#tool">best AI shayari</a> ko seedha copy karke WhatsApp, Instagram ya kisi bhi platform par share kar sakte ho.</p>
+
+    <h3>Kya Ye AI Poetry Generator Se Alag Hai?</h3>
+    <p>Haan — ye tool khaas <strong>Hindi/Urdu shayari</strong> ke liye bana hai jisme ghazal, nazm aur do-baiyt jaise traditional formats ka khayal rakha gaya hai. Agar aap English mein poetry chahte ho to hamare <a href="https://ai-poetry-generator.vercel.app" target="_blank">AI Poetry Generator</a> par jao jo English poetry ke liye equally powerful tool hai.</p>
+  </div>
+</section>
+
+<!-- GUIDE / BLOG -->
+<section class="wrap content-block" id="guide">
+  <h2>📖 Shayari Guide Aur Blog</h2>
+  <p class="section-sub">Shayari seekhne, samajhne aur likhne se juda content — beginners ke liye bhi aur shayari lovers ke liye bhi.</p>
+
+  <div class="blog-card">
+    <h3>Shayari Kaise Likhein — Beginner Ke Liye Guide</h3>
+    <ol class="numbered-list">
+      <li><strong>Ek emotion chuno:</strong> Shayari hamesha ek strong feeling se shuru hoti hai — pyaar, dard, gussa ya khushi. Pehle decide karo tumhe kya kehna hai.</li>
+      <li><strong>Behr/wazan ki chinta mat karo shuru mein:</strong> Beginners ke liye rhythm se zyada zaroori hai ki alfaaz dil se nikle. Practice ke saath behr apne aap aati hai.</li>
+      <li><strong>Simple alfaaz use karo:</strong> Best shayari wo hoti hai jo aam bolchaal ke qareeb ho, phir bhi dil ko chhue.</li>
+      <li><strong>Do misre ek jazbaat:</strong> Har sher mein do lines hoti hain jo ek hi baat ko poora karti hain — pehli line sawal ya scene banati hai, doosri uska jawab ya twist deti hai.</li>
+      <li><strong>Padho aur suno:</strong> Mirza Ghalib, Faiz, Gulzar jaise shayaron ko padhkar andaaz samajh aata hai.</li>
+      <li><strong>AI se practice karo:</strong> Agar alfaaz na milein, <a href="#tool">AI Shayari Generator</a> se inspiration lo aur apne style mein dhaal lo.</li>
+    </ol>
+  </div>
+
+  <div class="blog-card">
+    <h3>50 Best Love Shayari in Hindi — Ek Jhalak</h3>
+    <p>Neeche di gayi kuch chuni hui <strong>love shayari</strong> — poori collection ke liye <a href="#love-shayari-generator">Love Shayari Generator section</a> dekhein ya khud <a href="#tool">naya banayein</a>.</p>
+    <div class="cat-grid" style="margin-top:16px;">
+      <div class="cat-item">दिल में बसी है तेरी हर एक बात प्यारी,<br>तेरे बिना अधूरी लगे ज़िंदगी हमारी।</div>
+      <div class="cat-item">तेरी आँखों में डूबकर मैंने जाना,<br>मोहब्बत का असली मतलब क्या है।</div>
+      <div class="cat-item">हर धड़कन में तेरा ही नाम है अब,<br>तू मिला तो पूरा हुआ ये जहान है अब।</div>
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <h3>2 Line Shayari WhatsApp Status Ke Liye — Top Picks</h3>
+    <p>Chhoti, crisp aur seedha dil tak pahunchne wali shayari — poore collection ke liye <a href="#2-line-shayari-generator">2-Line Shayari section</a> dekhein.</p>
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section class="wrap content-block static-page" id="about-us">
+  <h2>ℹ️ About Us</h2>
+  <p><strong>AI Shayari Generator</strong> ek chhota sa project hai jo un logon ke liye banaya gaya jo apne jazbaat ko shabdon mein dhaalna chahte hain lekin sahi alfaaz nahi mil pate. Hamara maqsad simple hai — Hindi, Urdu aur Roman script mein achhi, original shayari ko har kisi ke liye aasaan aur free banana.</p>
+  <p>Ye tool artificial intelligence ka istemal karke seconds mein shayari generate karta hai, lekin hum manate hain ki asli shayari dil se aati hai — AI sirf ek madadgaar hai, alfaaz dhoondhne mein.</p>
+  <p>Hum lagataar is tool ko behtar banane mein lage hain — naye topics, naye tones aur naye features ke saath. Suggestions ya feedback ho to <a href="#contact-us">Contact Us</a> section se hume bataiye.</p>
+</section>
+
+<!-- CONTACT US -->
+<section class="wrap content-block static-page" id="contact-us">
+  <h2>✉️ Contact Us</h2>
+  <p>Koi sawaal, suggestion ya complaint ho — hum sunne ke liye taiyaar hain. Neeche diye form se message bhejein ya seedha email karein.</p>
+  <form class="contact-form" id="contactForm" onsubmit="return handleContactSubmit(event)">
+    <input type="text" placeholder="Aapka Naam" required>
+    <input type="email" placeholder="Aapka Email" required>
+    <textarea placeholder="Aapka Message" required></textarea>
+    <button type="submit">Message Bhejein</button>
+  </form>
+  <div class="contact-meta">
+    <span>📧 hello@ai-shayari-generator.vercel.app</span>
+    <span>⏱️ Reply time: 24–48 ghante</span>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="wrap content-block static-page" id="disclaimer">
+  <h2>⚠️ Disclaimer</h2>
+  <p>Is website par generate hone wali saari shayari <strong>Artificial Intelligence</strong> ke zariye banaayi jaati hai. Hum content ki 100% accuracy, originality ya kisi bhi khaas quality ka guarantee nahi dete.</p>
+  <p>Kabhi-kabhi AI-generated shayari kisi existing shayari se milti-julti ho sakti hai — ye purely coincidental hota hai. Agar aap generated shayari ko public ya commercial platform par use kar rahe hain, to uski originality khud verify karna aapki zimmedari hai.</p>
+  <p>Ye tool sirf entertainment aur creative assistance ke liye hai. Kisi bhi professional, legal ya literary certification ke liye iska use na karein.</p>
+</section>
+
+<!-- COOKIE POLICY -->
+<section class="wrap content-block static-page" id="cookie-policy">
+  <h2>🍪 Cookie Policy</h2>
+  <p>Hum is website par sirf <strong>functional cookies</strong> use karte hain — jaise aapki dark/light mode preference ya cookie-consent choice yaad rakhna. Koi advertising ya cross-site tracking cookies use nahi hoti.</p>
+  <p>Aap apne browser settings se cookies kabhi bhi block ya delete kar sakte hain — isse tool ka basic use prabhavit nahi hoga.</p>
+</section>
+
+<!-- FAQ -->
+<section class="wrap faq" id="faq">
+  <h2>Aksar Pooche Jaane Wale Sawal</h2>
+  <p class="section-sub">AI Shayari Generator ke baare mein sabse common sawaalon ke jawab.</p>
+  <details><summary>AI Shayari Generator bilkul free hai kya?</summary><p>Haan, ye tool 100% free hai. Koi sign-up, koi API key, koi payment nahi chahiye — bas topic chuno aur shayari paao.</p></details>
+  <details><summary>Kya Urdu script mein shayari ban sakti hai?</summary><p>Bilkul — upar wale tool mein "اُردو" chip select karein, ya "🔀 Ek saath teeno scripts mein dekhein" toggle use karke Hindi, Urdu aur Roman teeno ek saath dekhein.</p></details>
+  <details><summary>WhatsApp aur Instagram ke liye best shayari format konsa hai?</summary><p>WhatsApp Status ke liye 2-line ya 4-line shayari best rehti hai. Instagram caption ke liye 4-line kaafi hoti hai.</p></details>
+  <details><summary>Kya main apna khud ka topic de sakta hoon?</summary><p>Bilkul — topic dropdown mein "Apna Topic Likho" select karein, type karein ya 🎤 voice button se bol kar bhi topic de sakte hain.</p></details>
+  <details><summary>Kya main pasandida shayari save kar sakta hoon?</summary><p>Haan — result ke neeche "🤍 Save" button dabayein, wo aapke "Saved" panel mein add ho jaayegi (session ke dauraan).</p></details>
+  <details><summary>Kya website mobile par bhi use ho sakti hai?</summary><p>Haan, ye poori tarah mobile-friendly hai aur aap ise "Add to Home Screen" karke app jaisa bhi use kar sakte hain.</p></details>
+</section>
+
+<!-- RELATED SEARCHES -->
+<section class="wrap">
+  <h2>Related Keywords — Inpe Bhi Click Karein</h2>
+  <p class="section-sub">Niche diye gaye in popular <strong>AI shayari keywords</strong> par click karein — directly us topic ki shayari generate hogi.</p>
+  <div class="tag-cloud">
+    <span class="tag" onclick="setTopicTag('Pyaar aur Mohabbat (Love)')">ai shayari generator</span>
+    <span class="tag" onclick="setTopicTag('Pyaar aur Mohabbat (Love)')">hindi shayari ai</span>
+    <span class="tag" onclick="setTopicTag('Pyaar aur Mohabbat (Love)')">love shayari generator</span>
+    <span class="tag" onclick="setTopicTag('Dard aur Judai (Sadness & Separation)')">sad shayari ai</span>
+    <span class="tag" onclick="setTopicTag('Dosti aur Yaarana (Friendship)')">dosti shayari generator</span>
+    <span class="tag" onclick="setTopicTag('Bewafaai aur Dhoka (Betrayal)')">bewafaai shayari</span>
+    <span class="tag" onclick="setTopicTag('Zindagi aur Hikmat (Life & Wisdom)')">zindagi shayari</span>
+    <span class="tag" onclick="setTopicTag('Barish aur Mausam (Rain & Season)')">barish shayari ai</span>
+    <span class="tag" onclick="setTopicTag('Motivational aur Khudi (Self-Motivation)')">motivational shayari</span>
+    <span class="tag" onclick="setTopicTag('Maa-Baap aur Ghar (Parents & Home)')">maa ke liye shayari</span>
+    <span class="tag" onclick="setTopicTag('Ishq aur Mohabbat (Romantic Love)')">romantic shayari ai</span>
+    <span class="tag" onclick="setTopicTag('Intezaar aur Yaad (Waiting & Longing)')">yaad shayari generator</span>
+    <span class="tag" onclick="setTopicTag('Tyohar aur Jashn (Festivals)')">eid shayari ai</span>
+    <span class="tag" onclick="setTopicTag('Deshbhakti (Patriotism)')">deshbhakti shayari</span>
+    <span class="tag" onclick="setTopicTag('Pyaar aur Mohabbat (Love)')">whatsapp status shayari</span>
+    <span class="tag" onclick="setTopicTag('Pyaar aur Mohabbat (Love)')">shayari banane wala app</span>
+    <span class="tag" onclick="setTopicTag('Ishq aur Mohabbat (Romantic Love)')">2 line shayari generator</span>
+    <span class="tag" onclick="setTopicTag('Dard aur Judai (Sadness & Separation)')">4 line shayari ai</span>
+    <span class="tag" onclick="setTopicTag('Zindagi aur Hikmat (Life & Wisdom)')">best ai shayari</span>
+    <span class="tag" onclick="setTopicTag('Dard aur Judai (Sadness & Separation)')">free shayari generator online</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>AI Shayari Generator</h4>
+        <p>Sabse best free online <strong>AI shayari generator</strong> — Hindi, Urdu aur Roman script mein original shayari seconds mein.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Popular Topics</h4>
+        <ul>
+          <li><a href="#love-shayari-generator">Love Shayari Generator</a></li>
+          <li><a href="#dosti-shayari-generator">Dosti Shayari AI</a></li>
+          <li><a href="#sad-shayari-generator">Sad Shayari Generator</a></li>
+          <li><a href="#motivational-shayari-generator">Motivational Shayari</a></li>
+          <li><a href="#2-line-shayari-generator">2-Line Shayari</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about-us">About Us</a></li>
+          <li><a href="#contact-us">Contact Us</a></li>
+          <li><a href="#guide">Blog / Guide</a></li>
+          <li><a href="https://ai-poetry-generator.vercel.app" target="_blank">AI Poetry Generator →</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help & Legal</h4>
+        <ul>
+          <li><a href="#" onclick="showPopup('privacyPopup')">Privacy Policy</a></li>
+          <li><a href="#" onclick="showPopup('termsPopup')">Terms & Conditions</a></li>
+          <li><a href="#disclaimer">Disclaimer</a></li>
+          <li><a href="#cookie-policy">Cookie Policy</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="yr"></span> AI Shayari Generator — Made with ❤️ for shayari lovers</span>
+      <div class="footer-links">
+        <a href="#" onclick="showPopup('privacyPopup')">Privacy</a>
+        <a href="#" onclick="showPopup('termsPopup')">Terms</a>
+        <a href="#disclaimer">Disclaimer</a>
+        <a href="https://ai-poetry-generator.vercel.app" target="_blank">Poetry Generator</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ===== COOKIE BANNER (session only — no localStorage inside preview) ===== */
+let cookieDismissed = false;
+function acceptCookie(){cookieDismissed=true;document.getElementById('cookieBanner').style.display='none';}
+function declineCookie(){cookieDismissed=true;document.getElementById('cookieBanner').style.display='none';}
+
+/* ===== POPUPS ===== */
+function showPopup(id){document.getElementById(id).classList.add('show');}
+function closePopup(id){document.getElementById(id).classList.remove('show');}
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('show');}));
+
+/* ===== THEME TOGGLE (session only) ===== */
+const themeBtn=document.getElementById('themeToggle');
+themeBtn.addEventListener('click',()=>{
+  const cur=document.documentElement.getAttribute('data-theme');
+  if(cur==='dark'){document.documentElement.removeAttribute('data-theme');themeBtn.textContent='🌙 Dark';}
+  else{document.documentElement.setAttribute('data-theme','dark');themeBtn.textContent='☀️ Light';}
+});
+
+/* ===== MOBILE NAV ===== */
+document.getElementById('mobileToggle').addEventListener('click',()=>{
+  document.getElementById('mainNav').classList.toggle('open');
+});
+const catDrop=document.getElementById('catDrop');
+catDrop.querySelector('span').addEventListener('click',(e)=>{
+  if(window.innerWidth<=760){e.preventDefault();catDrop.classList.toggle('open');}
+});
+
+/* ===== TOPIC / SCRIPT CONTROLS ===== */
+const topicSel=document.getElementById('topic');
+const customRow=document.getElementById('customRow');
+topicSel.addEventListener('change',()=>{customRow.style.display=topicSel.value==='custom'?'flex':'none';});
+function setTopic(val){
+  const opts=topicSel.options;
+  for(let i=0;i<opts.length;i++){if(opts[i].value===val){topicSel.value=val;break;}}
+  customRow.style.display='none';
+  document.getElementById('tool').scrollIntoView({behavior:'smooth'});
+}
+function setTopicTag(val){setTopic(val);setTimeout(generateShayari,500);}
+
+let script='Roman/Hinglish (English letters mein)';
+document.querySelectorAll('#scriptChips .chip').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('#scriptChips .chip').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active');script=c.dataset.v;
+  });
+});
+
+/* ===== VOICE INPUT ===== */
+const voiceBtn=document.getElementById('voiceBtn');
+const SpeechRec=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(SpeechRec){
+  voiceBtn.addEventListener('click',()=>{
+    const rec=new SpeechRec();
+    rec.lang='hi-IN';
+    rec.onstart=()=>{voiceBtn.textContent='🔴';};
+    rec.onresult=(e)=>{
+      const said=e.results[0][0].transcript;
+      topicSel.value='custom';customRow.style.display='flex';
+      document.getElementById('customTopic').value=said;
+    };
+    rec.onend=()=>{voiceBtn.textContent='🎤';};
+    rec.onerror=()=>{voiceBtn.textContent='🎤';};
+    rec.start();
+  });
+}else{
+  voiceBtn.addEventListener('click',()=>alert('Aapka browser voice input support nahi karta. Chrome try karein.'));
+}
+
+/* ===== STATIC SHAYARI BANK (curated couplets — placeholder for AI backend) ===== */
+const BANK={
+  love:[
+    {hi:"तुम्हारी एक झलक में जो मिला सुकून मुझे,\nसारी उम्र की तलाश का जवाब मिला मुझे।",ur:"تمہاری اک جھلک میں جو ملا سکون مجھے،\nساری عمر کی تلاش کا جواب ملا مجھے۔",ro:"Tumhari ek jhalak mein jo mila sukoon mujhe,\nSaari umar ki talaash ka jawaab mila mujhe."},
+    {hi:"नज़रों से नज़रें मिलीं तो वक़्त थम सा गया,\nये मोहब्बत है या कोई जादू, समझ न आया।",ur:"نظروں سے نظریں ملیں تو وقت تھم سا گیا،\nیہ محبت ہے یا کوئی جادو، سمجھ نہ آیا۔",ro:"Nazron se nazrein milein to waqt tham sa gaya,\nYe mohabbat hai ya koi jaadu, samajh na aaya."},
+    {hi:"तेरी मुस्कान पे दुनिया लुटा दूँ मैं,\nबस इतनी सी ख्वाहिश है, तू मेरा हो जाए।",ur:"تیری مسکان پہ دنیا لٹا دوں میں،\nبس اتنی سی خواہش ہے، تو میرا ہو جائے۔",ro:"Teri muskaan pe duniya luta doon main,\nBas itni si khwahish hai, tu mera ho jaaye."},
+    {hi:"दिल में बसी है तेरी हर एक बात प्यारी,\nतेरे बिना अधूरी लगे ज़िंदगी हमारी।",ur:"دل میں بسی ہے تیری ہر ایک بات پیاری،\nتیرے بنا ادھوری لگے زندگی ہماری۔",ro:"Dil mein basi hai teri har ek baat pyaari,\nTere bina adhoori lage zindagi hamari."},
+    {hi:"तेरे साथ गुज़रा हर लम्हा खज़ाना है,\nमोहब्बत में तेरा साथ ही ठिकाना है।",ur:"تیرے ساتھ گزرا ہر لمحہ خزانہ ہے،\nمحبت میں تیرا ساتھ ہی ٹھکانہ ہے۔",ro:"Tere saath guzra har lamha khazana hai,\nMohabbat mein tera saath hi thikana hai."},
+    {hi:"हज़ार ख्वाहिशों में बस एक ख्वाहिश बाकी है,\nतू मिले तो लगे हर मंज़िल पास आ गई है।",ur:"ہزار خواہشوں میں بس ایک خواہش باقی ہے،\nتو ملے تو لگے ہر منزل پاس آ گئی ہے۔",ro:"Hazaar khwahishon mein bas ek khwahish baaki hai,\nTu mile to lage har manzil paas aa gayi hai."},
+    {hi:"तेरी आँखों में डूबकर जो सुकून मिला,\nउसी पल से ज़िंदगी का असली मतलब मिला।",ur:"تیری آنکھوں میں ڈوب کر جو سکون ملا،\nاسی پل سے زندگی کا اصلی مطلب ملا۔",ro:"Teri aankhon mein doobkar jo sukoon mila,\nUsi pal se zindagi ka asli matlab mila."}
+  ],
+  dosti:[
+    {hi:"दोस्त वो नहीं जो खुशी में याद आए,\nदोस्त वो है जो तूफान में साथ आए।",ur:"دوست وہ نہیں جو خوشی میں یاد آئے،\nدوست وہ ہے جو طوفان میں ساتھ آئے۔",ro:"Dost wo nahi jo khushi mein yaad aaye,\nDost wo hai jo toofan mein saath aaye."},
+    {hi:"यारों की महफ़िल में जो सुकून मिलता है,\nवो किसी और जगह नहीं मिलता।",ur:"یاروں کی محفل میں جو سکون ملتا ہے،\nوہ کسی اور جگہ نہیں ملتا۔",ro:"Yaaron ki mehfil mein jo sukoon milta hai,\nWo kisi aur jagah nahi milta."},
+    {hi:"हर राह पर तेरा साथ मिला जो यारा,\nज़िंदगी का सफ़र आसान लगा।",ur:"ہر راہ پر تیرا ساتھ ملا جو یارا،\nزندگی کا سفر آسان لگا۔",ro:"Har raah par tera saath mila jo yaara,\nZindagi ka safar aasaan laga."},
+    {hi:"पुरानी यादें ताज़ा हो जाती हैं यारों के संग,\nदोस्ती की मिठास बढ़ती है हर मुश्किल के संग।",ur:"پرانی یادیں تازہ ہو جاتی ہیں یاروں کے سنگ،\nدوستی کی مٹھاس بڑھتی ہے ہر مشکل کے سنگ۔",ro:"Purani yaadein taaza ho jaati hain yaaron ke sang,\nDosti ki mithaas badhti hai har mushkil ke sang."},
+    {hi:"साथ बैठकर हँसना, साथ रोना भी सिखाया,\nयारी में जो अपनापन है वो कहीं और न पाया।",ur:"ساتھ بیٹھ کر ہنسنا، ساتھ رونا بھی سکھایا،\nیاری میں جو اپنا پن ہے وہ کہیں اور نہ پایا۔",ro:"Saath baithkar hasna, saath rona bhi sikhaya,\nYaari mein jo apnapan hai wo kahin aur na paaya."},
+    {hi:"बचपन के यार अब भी उतने ही अपने हैं,\nदूरियाँ बढ़ीं मगर दिल के करीब बसे हैं।",ur:"بچپن کے یار اب بھی اتنے ہی اپنے ہیں،\nدوریاں بڑھیں مگر دل کے قریب بسے ہیں۔",ro:"Bachpan ke yaar ab bhi utne hi apne hain,\nDooriyan badhin magar dil ke kareeb base hain."}
+  ],
+  sad:[
+    {hi:"जो बात कहना चाहता था, कह न सका,\nवो दर्द अब भी सीने में रहता है बिना कहे।",ur:"جو بات کہنا چاہتا تھا، کہہ نہ سکا،\nوہ درد اب بھی سینے میں رہتا ہے بنا کہے۔",ro:"Jo baat kehna chahta tha, keh na saka,\nWo dard ab bhi seene mein rehta hai bina kahe."},
+    {hi:"आँसू छुपाना भी एक फ़न है दोस्तों,\nहर कोई मुस्कुराते हुए रोना नहीं सीखता।",ur:"آنسو چھپانا بھی ایک فن ہے دوستو،\nہر کوئی مسکراتے ہوئے رونا نہیں سیکھتا۔",ro:"Aansu chhupana bhi ek fan hai doston,\nHar koi muskurate hue rona nahi seekhta."},
+    {hi:"तन्हाई में भी उसकी याद आती है,\nशायद मोहब्बत यूँही अधूरी रह जाती है।",ur:"تنہائی میں بھی اس کی یاد آتی ہے،\nشاید محبت یونہی ادھوری رہ جاتی ہے۔",ro:"Tanhai mein bhi uski yaad aati hai,\nShayad mohabbat yunhi adhoori reh jaati hai."},
+    {hi:"खामोशी भी कभी इतनी बोलती है,\nजो दर्द ज़ुबान से न कह पाए, आँखें कहती हैं।",ur:"خاموشی بھی کبھی اتنی بولتی ہے،\nجو درد زبان سے نہ کہہ پائے، آنکھیں کہتی ہیں۔",ro:"Khamoshi bhi kabhi itni bolti hai,\nJo dard zubaan se na keh paaye, aankhein kehti hain."},
+    {hi:"बिछड़ने का दर्द वही समझ सकता है,\nजिसने अपनों को दूर जाते देखा है।",ur:"بچھڑنے کا درد وہی سمجھ سکتا ہے،\nجس نے اپنوں کو دور جاتے دیکھا ہے۔",ro:"Bichadne ka dard wahi samajh sakta hai,\nJisne apnon ko door jaate dekha hai."},
+    {hi:"मुस्कुराहट के पीछे कितने ग़म छुपे हैं,\nये राज़ सिर्फ़ तन्हा रातें जानती हैं।",ur:"مسکراہٹ کے پیچھے کتنے غم چھپے ہیں،\nیہ راز صرف تنہا راتیں جانتی ہیں۔",ro:"Muskurahat ke peeche kitne gham chhupe hain,\nYe raaz sirf tanha raatein jaanti hain."}
+  ],
+  motivational:[
+    {hi:"गिरकर उठना तो सभी जानते हैं,\nफन यह है कि मुस्कुराते हुए उठो।",ur:"گر کر اٹھنا تو سبھی جانتے ہیں،\nفن یہ ہے کہ مسکراتے ہوئے اٹھو۔",ro:"Girkar uthna to sabhi jaante hain,\nFan yeh hai ki muskurate hue utho."},
+    {hi:"मंज़िल मिले न मिले, कोशिश जारी रहे,\nहार कर बैठ जाना कभी मंज़ूर नहीं।",ur:"منزل ملے نہ ملے، کوشش جاری رہے،\nہار کر بیٹھ جانا کبھی منظور نہیں۔",ro:"Manzil mile na mile, koshish jaari rahe,\nHaar kar baith jaana kabhi manzoor nahi."},
+    {hi:"खुद पे यकीन रखो, रास्ता खुद बनेगा,\nहर अंधेरे के बाद सवेरा ज़रूर आएगा।",ur:"خود پہ یقین رکھو، راستہ خود بنے گا،\nہر اندھیرے کے بعد سویرا ضرور آئے گا۔",ro:"Khud pe yakeen rakho, raasta khud banega,\nHar andhere ke baad savera zaroor aayega."},
+    {hi:"जो ठान लिया वो करके ही दम लेंगे,\nमुश्किलों से डरकर हम कहाँ रुकेंगे।",ur:"جو ٹھان لیا وہ کر کے ہی دم لیں گے،\nمشکلوں سے ڈر کر ہم کہاں رکیں گے۔",ro:"Jo thaan liya wo karke hi dam lenge,\nMushkilon se darkar hum kahan rukenge."},
+    {hi:"हार में भी छुपी होती है अगली जीत की राह,\nबस हिम्मत मत हारना, यही है असली फतह।",ur:"ہار میں بھی چھپی ہوتی ہے اگلی جیت کی راہ،\nبس ہمت مت ہارنا، یہی ہے اصلی فتح۔",ro:"Haar mein bhi chhupi hoti hai agli jeet ki raah,\nBas himmat mat haarna, yehi hai asli fatah."},
+    {hi:"मेहनत का फल कभी बेकार नहीं जाता,\nवक़्त बदलता है, हौसला बुलंद रखो यारा।",ur:"محنت کا پھل کبھی بیکار نہیں جاتا،\nوقت بدلتا ہے، حوصلہ بلند رکھو یارا۔",ro:"Mehnat ka phal kabhi bekaar nahi jaata,\nWaqt badalta hai, hausla buland rakho yaara."}
+  ],
+  maa:[
+    {hi:"माँ की दुआओं में एक ताकत है ऐसी,\nजो रास्ते बंद हों उन्हें खोल देती है।",ur:"ماں کی دعاؤں میں ایک طاقت ہے ایسی،\nجو راستے بند ہوں انہیں کھول دیتی ہے۔",ro:"Maa ki duaon mein ek taakat hai aisi,\nJo raaste band hon unhein khol deti hai."},
+    {hi:"घर की चौखट पर जो सुकून मिलता है,\nवो दुनिया के किसी कोने में नहीं मिलता।",ur:"گھر کی چوکھٹ پر جو سکون ملتا ہے،\nوہ دنیا کے کسی کونے میں نہیں ملتا۔",ro:"Ghar ki chaukhat par jo sukoon milta hai,\nWo duniya ke kisi kone mein nahi milta."},
+    {hi:"बाबा की डाँट में भी प्यार छुपा होता है,\nये बात बड़े होकर समझ आती है।",ur:"بابا کی ڈانٹ میں بھی پیار چھپا ہوتا ہے،\nیہ بات بڑے ہو کر سمجھ آتی ہے۔",ro:"Baba ki daant mein bhi pyaar chhupa hota hai,\nYe baat bade hokar samajh aati hai."},
+    {hi:"माँ के हाथों का खाना जन्नत से कम नहीं,\nदुनिया घूमी मगर वो स्वाद कहीं और नहीं।",ur:"ماں کے ہاتھوں کا کھانا جنت سے کم نہیں،\nدنیا گھومی مگر وہ ذائقہ کہیں اور نہیں۔",ro:"Maa ke haathon ka khana jannat se kam nahi,\nDuniya ghoomi magar wo swaad kahin aur nahi."},
+    {hi:"पापा की चुप्पी में भी हज़ार बातें होती हैं,\nजो कहते नहीं, फिर भी हर पल साथ होते हैं।",ur:"پاپا کی خاموشی میں بھی ہزار باتیں ہوتی ہیں،\nجو کہتے نہیں، پھر بھی ہر پل ساتھ ہوتے ہیں۔",ro:"Papa ki chuppi mein bhi hazaar baatein hoti hain,\nJo kehte nahi, phir bhi har pal saath hote hain."},
+    {hi:"माँ-बाबा का साया जब तक सर पर रहे,\nदुनिया की हर मुश्किल छोटी सी लगे।",ur:"ماں باپ کا سایہ جب تک سر پر رہے،\nدنیا کی ہر مشکل چھوٹی سی لگے۔",ro:"Maa-baba ka saaya jab tak sar par rahe,\nDuniya ki har mushkil chhoti si lage."}
+  ],
+  zindagi:[
+    {hi:"ज़िंदगी एक किताब है जो हर रोज़ नया सिखाती है,\nहर मोड़ पर एक नई कहानी बन जाती है।",ur:"زندگی ایک کتاب ہے جو ہر روز نیا سکھاتی ہے،\nہر موڑ پر ایک نئی کہانی بن جاتی ہے۔",ro:"Zindagi ek kitaab hai jo har roz naya sikhaati hai,\nHar mod par ek nayi kahani ban jaati hai."},
+    {hi:"वक़्त हर ज़ख्म को धीरे-धीरे भर देता है,\nबस थोड़ा सब्र रखना सीखो दोस्तों।",ur:"وقت ہر زخم کو دھیرے دھیرے بھر دیتا ہے،\nبس تھوڑا صبر رکھنا سیکھو دوستو۔",ro:"Waqt har zakhm ko dheere-dheere bhar deta hai,\nBas thoda sabr rakhna seekho doston."},
+    {hi:"जो बीत गया उसे याद कर के मत रो,\nजो आने वाला है उसे संवारने की सोचो।",ur:"جو بیت گیا اسے یاد کر کے مت رو،\nجو آنے والا ہے اسے سنوارنے کی سوچو۔",ro:"Jo beet gaya use yaad karke mat ro,\nJo aane wala hai use sanwaarne ki socho."},
+    {hi:"हर सुबह एक नया मौका लेकर आती है,\nबस पहचानने वाली नज़र चाहिए होती है।",ur:"ہر صبح ایک نیا موقع لے کر آتی ہے،\nبس پہچاننے والی نظر چاہیے ہوتی ہے۔",ro:"Har subah ek naya mauka lekar aati hai,\nBas pehchaanne wali nazar chahiye hoti hai."},
+    {hi:"छोटी-छोटी खुशियों में ही असली मज़ा है,\nबड़ी चीज़ों के पीछे भागना बेकार है भाई।",ur:"چھوٹی چھوٹی خوشیوں میں ہی اصلی مزہ ہے،\nبڑی چیزوں کے پیچھے بھاگنا بیکار ہے بھائی۔",ro:"Chhoti-chhoti khushiyon mein hi asli maza hai,\nBadi cheezon ke peeche bhaagna bekaar hai bhai."}
+  ],
+  festive:[
+    {hi:"वतन की मिट्टी में जो खुशबू है यारों,\nवो किसी जन्नत से कम नहीं लगती।",ur:"وطن کی مٹی میں جو خوشبو ہے یارو،\nوہ کسی جنت سے کم نہیں لگتی۔",ro:"Watan ki mitti mein jo khushboo hai yaaron,\nWo kisi jannat se kam nahi lagti."},
+    {hi:"तिरंगे की शान में हर दिल झूम उठता है,\nये मिट्टी हर हिंदुस्तानी को अपना लगता है।",ur:"ترنگے کی شان میں ہر دل جھوم اٹھتا ہے،\nیہ مٹی ہر ہندوستانی کو اپنا لگتا ہے۔",ro:"Tirange ki shaan mein har dil jhoom uthta hai,\nYe mitti har hindustani ko apna lagta hai."},
+    {hi:"त्योहारों की रौनक में मिलती है अपनों की खुशी,\nयही तो है असली ज़िंदगी की कमाई।",ur:"تہواروں کی رونق میں ملتی ہے اپنوں کی خوشی،\nیہی تو ہے اصلی زندگی کی کمائی۔",ro:"Tyoharon ki raunak mein milti hai apnon ki khushi,\nYahi to hai asli zindagi ki kamai."},
+    {hi:"दीयों की रौशनी में जब घर जगमगाता है,\nहर दिल में एक नई उम्मीद जग जाता है।",ur:"دیوں کی روشنی میں جب گھر جگمگاتا ہے،\nہر دل میں ایک نئی امید جاگ جاتا ہے۔",ro:"Diyon ki roshni mein jab ghar jagmagata hai,\nHar dil mein ek nayi ummeed jaag jaata hai."}
+  ],
+  barish:[
+    {hi:"बारिश की हर बूँद मुझे याद दिलाती है,\nवो तेरी बातें जो दिल में रह गई हैं।",ur:"بارش کی ہر بوند مجھے یاد دلاتی ہے،\nوہ تیری باتیں جو دل میں رہ گئی ہیں۔",ro:"Barish ki har boond mujhe yaad dilaati hai,\nWo teri baatein jo dil mein reh gayi hain."},
+    {hi:"सावन की फुहारों में भीगने का मज़ा कुछ और है,\nजब साथ में हो कोई अपना हमसफ़र।",ur:"ساون کی پھواروں میں بھیگنے کا مزہ کچھ اور ہے،\nجب ساتھ میں ہو کوئی اپنا ہمسفر۔",ro:"Saawan ki phuwaron mein bheegne ka maza kuch aur hai,\nJab saath mein ho koi apna humsafar."},
+    {hi:"बादलों की गड़गड़ाहट में भी सुकून छुपा होता है,\nबारिश की खुशबू दिल को महका देती है।",ur:"بادلوں کی گڑگڑاہٹ میں بھی سکون چھپا ہوتا ہے،\nبارش کی خوشبو دل کو مہکا دیتی ہے۔",ro:"Baadalon ki gadgadahat mein bhi sukoon chhupa hota hai,\nBarish ki khushboo dil ko mehka deti hai."},
+    {hi:"बादलों की गड़गड़ाहट में भी सुकून मिलता है,\nजब खिड़की से बारिश को यूँ निहारते हैं हम।",ur:"بادلوں کی گڑگڑاہٹ میں بھی سکون ملتا ہے،\nجب کھڑکی سے بارش کو یوں نہارتے ہیں ہم۔",ro:"Baadlon ki gadgadahat mein bhi sukoon milta hai,\nJab khidki se barish ko yun nihaarte hain hum."}
+  ],
+  general:[
+    {hi:"हर एहसास को अल्फ़ाज़ मिल जाएं तो शायरी बनती है,\nदिल की हर बात यूँही बयां हो जाती है।",ur:"ہر احساس کو الفاظ مل جائیں تو شاعری بنتی ہے،\nدل کی ہر بات یونہی بیاں ہو جاتی ہے۔",ro:"Har ehsaas ko alfaaz mil jaayein to shayari banti hai,\nDil ki har baat yunhi bayaan ho jaati hai."},
+    {hi:"कुछ लम्हे ऐसे होते हैं जो शब्दों में नहीं समाते,\nबस महसूस किए जाते हैं, कहे नहीं जाते।",ur:"کچھ لمحے ایسے ہوتے ہیں جو الفاظ میں نہیں سماتے،\nبس محسوس کیے جاتے ہیں، کہے نہیں جاتے۔",ro:"Kuch lamhe aise hote hain jo shabdon mein nahi samaate,\nBas mehsoos kiye jaate hain, kahe nahi jaate."},
+    {hi:"ज़िंदगी के हर रंग में एक कहानी छुपी होती है,\nबस देखने वाली नज़र चाहिए होती है।",ur:"زندگی کے ہر رنگ میں ایک کہانی چھپی ہوتی ہے،\nبس دیکھنے والی نظر چاہیے ہوتی ہے۔",ro:"Zindagi ke har rang mein ek kahani chhupi hoti hai,\nBas dekhne waali nazar chahiye hoti hai."},
+    {hi:"अल्फ़ाज़ों में जो बात है, वो खामोशी में नहीं,\nदिल से दिल तक पहुँचे तो असर होता है सही।",ur:"الفاظوں میں جو بات ہے، وہ خاموشی میں نہیں،\nدل سے دل تک پہنچے تو اثر ہوتا ہے صحیح۔",ro:"Alfaazon mein jo baat hai, wo khamoshi mein nahi,\nDil se dil tak pahunche to asar hota hai sahi."}
+  ]
+};
+
+function mapTopicToKey(topicVal, customText){
+  if(topicVal==='custom'){
+    const t=(customText||'').toLowerCase();
+    if(/maa|ammi|abbu|baba|papa|ghar/.test(t))return'maa';
+    if(/dost|yaar/.test(t))return'dosti';
+    if(/dard|gham|rona|judai|dhoka|bewafa/.test(t))return'sad';
+    if(/josh|himmat|motivat|kamyabi/.test(t))return'motivational';
+    if(/barish|sawan|mausam/.test(t))return'barish';
+    if(/watan|desh|tiranga|eid|diwali|holi|tyohar/.test(t))return'festive';
+    if(/pyaar|ishq|mohabbat|prem/.test(t))return'love';
+    return'general';
+  }
+  if(/Pyaar|Ishq/.test(topicVal))return'love';
+  if(/Dosti/.test(topicVal))return'dosti';
+  if(/Dard|Bewafaai|Intezaar/.test(topicVal))return'sad';
+  if(/Motivational/.test(topicVal))return'motivational';
+  if(/Maa-Baap/.test(topicVal))return'maa';
+  if(/Zindagi/.test(topicVal))return'zindagi';
+  if(/Tyohar|Deshbhakti/.test(topicVal))return'festive';
+  if(/Barish/.test(topicVal))return'barish';
+  return'general';
+}
+
+function pickRandomCouplets(pool,n){
+  const shuffled=[...pool].sort(()=>Math.random()-0.5);
+  const picked=[];
+  for(let i=0;i<n;i++){picked.push(shuffled[i%shuffled.length]);}
+  return picked;
+}
+
+function renderCouplet(c,scriptVal,idx){
+  if(scriptVal.includes('Urdu'))return c.ur;
+  if(scriptVal.includes('Roman'))return c.ro;
+  if(scriptVal.includes('Mixed')){
+    const hiLines=c.hi.split('\n'),roLines=c.ro.split('\n');
+    return hiLines[0]+'\n'+(roLines[1]||roLines[0]);
+  }
+  return c.hi;
+}
+
+const output=document.getElementById('output');
+const genBtn=document.getElementById('genBtn');
+const resultSeal=document.getElementById('resultSeal');
+let lastCouplets=[];
+let lastSource='ai'; // 'ai' ya 'offline'
+const SITE_URL='ai-shayari-generator.vercel.app';
+
+/* ===== AI GENERATION =====
+   Ab key yahan nahi hai — request /api/generate (Vercel serverless function) ko jaati hai,
+   jo apni taraf se Vercel ke Environment Variables se key uthakar Gemini ko call karta hai.
+   Isliye browser ya GitHub mein key kabhi visible nahi hoti. */
+
+function scriptInstruction(s){
+  if(s.includes('Hindi'))return 'Sirf Hindi Devanagari script mein likho.';
+  if(s.includes('Urdu'))return 'Sirf Urdu Nastaliq script mein likho.';
+  if(s.includes('Mixed'))return 'Hindi aur English dono mila kar (mixed script) likho.';
+  return 'Sirf Roman/Hinglish (English letters) mein likho, jaise WhatsApp par Hindi likhte hain.';
+}
+
+function setSeal(source){
+  lastSource=source;
+  if(source==='ai'){
+    resultSeal.textContent='🪶 AI Generated';
+    resultSeal.classList.remove('offline');
+  }else{
+    resultSeal.textContent='📖 Offline Shayari';
+    resultSeal.classList.add('offline');
+  }
+}
+
+async function fetchFromGemini(topic,tone,linesVal){
+  const prompt=`Tum ek mash'hoor, ustaad shayar ho — Gulzar, Jaun Elia aur Rahat Indori ke andaaz jaisa gehra aur asardaar likhte ho. Tumhari shayari sunke log "haay", "wah wah", "kya baat hai" bol uthte hain, kyunki har lafz seedha dil mein utarta hai.
+
+Topic: "${topic}"
+Tone: "${tone}"
+Lambai: ${linesVal}
+
+Zaroori usool (in sabko follow karo):
+1. Koi bhi seedhi-saadi, filmy ya generic line mat likho (jaise "dil mein basi ho tum" jaisi ghisi-piti lines avoid karo).
+2. Har sher mein ek strong imagery, metaphor ya tashbeeh (comparison) ho — jaise mausam, chaand, khat, chai, sadkein, khamoshi, aaina, jaise rozmarra ki cheezon ko emotion se jodo.
+3. Alfaaz saadā rakho lekin maqsad gehra ho — jaise kam se kam lafzon mein zyada se zyada dard ya khushi jhalke.
+4. Har line ka apna vazan (rhythm) ho, aur akhri sher mein ek chhota sa twist ya "punch" ho jo padhne wale ko ek pal ke liye rok de.
+5. ${scriptInstruction(script)}
+
+Sirf shayari ka final text do — koi explanation, heading, quotes, ya intro-outro nahi.`;
+  const res=await fetch('/api/generate',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({prompt})
+  });
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok){
+    const err=new Error('API error '+res.status);
+    err.detail=data.detail||data.error||('HTTP '+res.status);
+    throw err;
+  }
+  if(!data.text)throw new Error('Empty response');
+  return data.text;
+}
+
+function generateShayari(){
+  const topic=topicSel.value==='custom'?(document.getElementById('customTopic').value||'zindagi'):topicSel.value;
+  const tone=document.getElementById('tone').value;
+  const key=mapTopicToKey(topicSel.value,document.getElementById('customTopic').value);
+  const linesVal=document.getElementById('lines').value;
+  const n=linesVal.includes('2')?1:linesVal.includes('4')?2:linesVal.includes('6')?3:4;
+
+  genBtn.disabled=true; genBtn.textContent='✨ Likh raha hoon...';
+  output.className=script.includes('Urdu')?'shayari-text urdu-mode':'shayari-text';
+  output.innerHTML='<span class="placeholder-txt">Shayari taiyaar ho rahi hai...</span>';
+  document.getElementById('triView').classList.remove('show');
+
+  fetchFromGemini(topic,tone,linesVal).then(text=>{
+    lastCouplets=[{hi:text,ur:text,ro:text}];
+    output.textContent=text;
+    setSeal('ai');
+    genBtn.disabled=false; genBtn.textContent='✨ Shayari Generate Karein';
+  }).catch((err)=>{
+    /* TEMPORARY DEBUG: asli error seedha screen par dikhata hai taaki
+       Vercel logs mein jaane ki zaroorat na pade. Baad mein ye alert() line hata denge. */
+    alert('⚠️ AI API fail hui, wajah:\n\n'+(err.detail||err.message||'Unknown error'));
+    /* Agar API fail ho jaaye (galat key, no internet, quota khatam) to
+       local shayari bank se fallback ho jaata hai — user ko blank screen kabhi nahi dikhta */
+    const pool=BANK[key]||BANK.general;
+    const couplets=pickRandomCouplets(pool,n);
+    lastCouplets=couplets;
+    const text=couplets.map(c=>renderCouplet(c,script)).join('\n\n');
+    output.textContent=text;
+    setSeal('offline');
+    genBtn.disabled=false; genBtn.textContent='✨ Shayari Generate Karein';
+  });
+}
+
+genBtn.addEventListener('click',generateShayari);
+document.getElementById('regenBtn').addEventListener('click',generateShayari);
+
+/* ===== TRI-SCRIPT VIEW ===== */
+document.getElementById('triToggle').addEventListener('click',()=>{
+  const view=document.getElementById('triView');
+  if(!lastCouplets.length){alert('Pehle ek shayari generate karein.');return;}
+  document.getElementById('triHi').innerHTML=lastCouplets.map(c=>c.hi).join('<br><br>');
+  document.getElementById('triUr').innerHTML=lastCouplets.map(c=>c.ur).join('<br><br>');
+  document.getElementById('triRo').innerHTML=lastCouplets.map(c=>c.ro).join('<br><br>');
+  view.classList.toggle('show');
+});
+
+/* ===== SHAYARI OF THE DAY (deterministic by date, no storage needed) ===== */
+(function(){
+  const allCouplets=Object.values(BANK).flat();
+  const dayOfYear=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/86400000);
+  const pick=allCouplets[dayOfYear%allCouplets.length];
+  document.getElementById('sotdText').innerHTML=pick.hi.replace('\n','<br>');
+})();
+
+/* ===== FAVORITES (in-memory for this session) ===== */
+let favorites=[];
+function renderFavs(){
+  const list=document.getElementById('favList');
+  document.getElementById('favCount').textContent=favorites.length;
+  if(!favorites.length){list.innerHTML='<p class="fav-empty">Abhi koi shayari save nahi ki. "🤍 Save" button dabakar apni pasandida shayari yahan rakhein.</p>';return;}
+  list.innerHTML=favorites.map((f,i)=>`<div class="fav-item">${f.replace(/\n/g,'<br>')}<br><button class="act-btn" style="margin-top:6px;padding:4px 10px;font-size:11px;" onclick="removeFav(${i})">✕ Remove</button></div>`).join('');
+}
+function removeFav(i){favorites.splice(i,1);renderFavs();}
+document.getElementById('favAddBtn').addEventListener('click',()=>{
+  const t=output.textContent;
+  if(!t||t.includes('taiyaar')||t.includes('Generate')){alert('Pehle shayari generate karein.');return;}
+  favorites.push(t);renderFavs();
+  const b=document.getElementById('favAddBtn');b.textContent='✅ Saved!';setTimeout(()=>b.textContent='🤍 Save',1200);
+});
+document.getElementById('favBtn').addEventListener('click',()=>{
+  document.getElementById('favPanel').classList.toggle('show');
+});
+renderFavs();
+
+/* ===== SHARE / COPY / DOWNLOAD ACTIONS ===== */
+function withBrand(text){
+  return `${text}\n\n✦ ${SITE_URL}`;
+}
+document.getElementById('copyBtn').addEventListener('click',()=>{
+  const t=output.textContent;if(!t||t.includes('Generate'))return;
+  navigator.clipboard.writeText(withBrand(t)).then(()=>{const b=document.getElementById('copyBtn');b.textContent='✅ Copied!';setTimeout(()=>b.textContent='📋 Copy',1500);});
+});
+document.getElementById('waBtn').addEventListener('click',()=>{
+  const t=output.textContent;if(!t)return;
+  window.open('https://wa.me/?text='+encodeURIComponent(withBrand(t)),'_blank');
+});
+document.getElementById('igBtn').addEventListener('click',()=>{
+  navigator.clipboard.writeText(withBrand(output.textContent));
+  alert('Shayari copy ho gayi — Instagram app mein paste karein!');
+});
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+function cornerFlourish(ctx,x,y,fx,fy){
+  ctx.save();ctx.translate(x,y);ctx.scale(fx,fy);
+  ctx.strokeStyle='#0EA5E9';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(0,30);ctx.lineTo(0,6);ctx.quadraticCurveTo(0,0,6,0);ctx.lineTo(30,0);ctx.stroke();
+  ctx.restore();
+}
+document.getElementById('dlBtn').addEventListener('click',async()=>{
+  const t=output.textContent;if(!t||t.includes('Generate'))return;
+  if(document.fonts&&document.fonts.ready){try{await document.fonts.ready;}catch(e){}}
+
+  const topicLabel=topicSel.value==='custom'
+    ?('✍️ '+(document.getElementById('customTopic').value||'Zindagi'))
+    :topicSel.options[topicSel.selectedIndex].text;
+
+  const W=1080,H=1350;
+  const c=document.createElement('canvas');c.width=W;c.height=H;
+  const ctx=c.getContext('2d');
+
+  /* premium gradient backdrop */
+  const grad=ctx.createLinearGradient(0,0,W,H);
+  grad.addColorStop(0,'#F3FAFF');grad.addColorStop(0.55,'#FFFFFF');grad.addColorStop(1,'#EAF4FC');
+  ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+
+  /* subtle dot texture */
+  ctx.fillStyle='rgba(2,132,199,0.05)';
+  for(let y=20;y<H-20;y+=24){for(let x=20;x<W-20;x+=24){ctx.beginPath();ctx.arc(x,y,1.1,0,Math.PI*2);ctx.fill();}}
+
+  /* double premium border */
+  ctx.strokeStyle='#0284C7';ctx.lineWidth=3;ctx.strokeRect(38,38,W-76,H-76);
+  ctx.strokeStyle='rgba(14,165,233,0.35)';ctx.lineWidth=1;ctx.strokeRect(54,54,W-108,H-108);
+  cornerFlourish(ctx,54,54,1,1);cornerFlourish(ctx,W-54,54,-1,1);
+  cornerFlourish(ctx,54,H-54,1,-1);cornerFlourish(ctx,W-54,H-54,-1,-1);
+
+  ctx.textAlign='center';
+
+  /* brand header */
+  ctx.fillStyle='#075985';ctx.font='700 24px Manrope, sans-serif';
+  ctx.fillText('✦ AI SHAYARI GENERATOR ✦',W/2,118);
+
+  /* topic pill */
+  ctx.font='600 26px Manrope, sans-serif';
+  const pillW=Math.min(ctx.measureText(topicLabel).width+64,W-160);
+  ctx.fillStyle='#0284C7';
+  roundRect(ctx,W/2-pillW/2,150,pillW,54,27);ctx.fill();
+  ctx.fillStyle='#fff';ctx.fillText(topicLabel,W/2,185);
+
+  /* decorative opening quote */
+  ctx.font='110px Georgia, serif';ctx.fillStyle='rgba(2,132,199,0.10)';
+  ctx.fillText('❝',W/2,H/2-190);
+
+  /* shayari text, vertically centered */
+  ctx.fillStyle='#16232E';
+  const isUrdu=script.includes('Urdu');
+  ctx.font=(isUrdu?'32px "Noto Nastaliq Urdu", serif':'36px "Tiro Devanagari Hindi", Georgia, serif');
+  const rawLines=t.split('\n').filter(l=>l.trim().length||true);
+  const lineHeight=isUrdu?58:56;
+  let startY=H/2-(rawLines.length*lineHeight)/2+18;
+  rawLines.forEach(l=>{
+    if(l.trim()){ctx.fillText(l,W/2,startY);startY+=lineHeight;}
+    else{startY+=lineHeight*0.5;}
+  });
+
+  /* footer seal + link */
+  ctx.font='600 22px Manrope, sans-serif';
+  ctx.fillStyle='#0EA5E9';
+  ctx.fillText(lastSource==='ai'?'🪶 AI Generated':'📖 Curated Shayari',W/2,H-150);
+  ctx.font='500 18px Manrope, sans-serif';
+  ctx.fillStyle='#3E6E8E';
+  ctx.fillText(SITE_URL,W/2,H-108);
+
+  const a=document.createElement('a');a.download='shayari-premium.png';a.href=c.toDataURL();a.click();
+});
+
+/* ===== CONTACT FORM (static — mailto fallback, no backend yet) ===== */
+function handleContactSubmit(e){
+  e.preventDefault();
+  const inputs=e.target.querySelectorAll('input,textarea');
+  const name=inputs[0].value,email=inputs[1].value,msg=inputs[2].value;
+  window.location.href=`mailto:hello@ai-shayari-generator.vercel.app?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(msg+'\n\nFrom: '+email)}`;
+  return false;
+}
+</script>
+</body>
+</html>
