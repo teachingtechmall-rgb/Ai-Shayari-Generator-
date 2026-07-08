@@ -45,7 +45,7 @@ nav a{color:#4A6178;}
 .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--maroon);border:1.5px solid var(--maroon);padding:5px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:.3px;}
 .eyebrow .badge{background:var(--maroon);color:#fff;border-radius:999px;padding:1px 8px;font-size:11px;}
 h1{font-family:'Tiro Devanagari Hindi',serif;font-size:clamp(30px,5.5vw,52px);line-height:1.15;margin-bottom:14px;color:var(--maroon-deep);}
-.hero p.sub{font-size:16.5px;max-width:580px;color:#4a3531;margin-bottom:28px;}
+.hero p.sub{font-size:16.5px;max-width:580px;color:#4A6178;margin-bottom:28px;}
 
 /* TOOL CARD */
 .tool-card{position:relative;z-index:1;background:linear-gradient(160deg,#FFFFFF,#EAF4FC 80%);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 24px 60px -28px rgba(2,84,135,.35);margin:10px 0 54px;}
@@ -58,18 +58,18 @@ select:focus,input[type=text]:focus{border-color:var(--maroon);}
 .chip{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-size:13px;cursor:pointer;font-weight:700;color:#4A6178;transition:.15s;}
 .chip.active{background:var(--maroon);border-color:var(--maroon);color:#fff;}
 .chip:hover:not(.active){border-color:var(--maroon);color:var(--maroon);}
-.gen-btn{width:100%;padding:16px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--maroon),var(--maroon-deep));color:#fff;font-weight:800;font-size:16px;cursor:pointer;letter-spacing:.3px;box-shadow:0 12px 28px -12px rgba(2,132,199,.45);transition:.2s;}
+.gen-btn{width:100%;padding:17px;margin:22px 0 4px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--maroon),var(--maroon-deep));color:#fff;font-weight:800;font-size:16px;cursor:pointer;letter-spacing:.3px;box-shadow:0 12px 28px -12px rgba(2,132,199,.45);transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px;}
 .gen-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 16px 32px -12px rgba(2,132,199,.5);}
 .gen-btn:disabled{opacity:.6;cursor:wait;}
-.result-card{margin-top:24px;border-radius:14px;padding:28px 24px;background:#fff;border:1px solid var(--line);position:relative;min-height:100px;background-image:repeating-linear-gradient(transparent,transparent 33px,var(--line) 33px,var(--line) 34px);background-position:0 40px;}
-.result-card .seal{position:absolute;top:-13px;right:14px;background:var(--gold);color:#fff;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:800;box-shadow:0 4px 12px -4px rgba(14,165,233,.45);transition:.2s;}
+.result-card{margin-top:22px;border-radius:16px;padding:32px 26px 26px;background:linear-gradient(165deg,#FFFFFF,#F3FAFF);border:1px solid var(--line);position:relative;min-height:120px;box-shadow:0 18px 44px -30px rgba(2,84,135,.4);}
+.result-card .seal{position:absolute;top:-14px;left:26px;background:var(--gold);color:#fff;border-radius:999px;padding:5px 14px;font-size:12px;font-weight:800;box-shadow:0 4px 12px -4px rgba(14,165,233,.45);transition:.2s;}
 .result-card .seal.offline{background:#94A3B8;box-shadow:0 4px 12px -4px rgba(100,116,139,.45);}
-.shayari-text{font-family:'Tiro Devanagari Hindi',serif;font-size:21px;line-height:34px;white-space:pre-wrap;color:var(--maroon-deep);min-height:34px;}
-.shayari-text.urdu-mode{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:26px;line-height:44px;}
-.placeholder-txt{color:#8FAEC2;font-size:15px;font-style:italic;font-family:'Manrope',sans-serif;}
-.actions{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
+.shayari-text{font-family:'Tiro Devanagari Hindi',serif;font-size:21px;line-height:36px;white-space:pre-wrap;color:var(--maroon-deep);min-height:36px;margin-top:6px;}
+.shayari-text.urdu-mode{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:26px;line-height:46px;}
+.placeholder-txt{color:#6B8CA3;font-size:15px;font-style:italic;font-family:'Manrope',sans-serif;}
+.actions{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap;}
 .act-btn{border:1.5px solid var(--line);background:#fff;padding:9px 15px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;color:#4A6178;transition:.15s;}
-.act-btn:hover{border-color:var(--maroon);color:var(--maroon);}
+.act-btn:hover{border-color:var(--maroon);color:var(--maroon);background:#EAF6FD;}
 
 /* API KEY BANNER */
 
@@ -104,9 +104,9 @@ h2{font-family:'Tiro Devanagari Hindi',serif;font-size:28px;color:var(--maroon-d
 
 /* EXAMPLE SHAYARI */
 .shayari-examples{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px;}
-.ex-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative;background-image:repeating-linear-gradient(transparent,transparent 31px,rgba(2,132,199,0.06) 31px,rgba(2,132,199,0.06) 32px);background-position:0 38px;}
+.ex-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px 22px;position:relative;}
 .ex-card .topic-tag{position:absolute;top:-10px;left:16px;background:var(--maroon);color:#fff;border-radius:999px;padding:3px 12px;font-size:11px;font-weight:800;}
-.ex-card .shayari{font-family:'Tiro Devanagari Hindi',serif;font-size:17px;line-height:30px;color:var(--maroon-deep);margin-top:8px;}
+.ex-card .shayari{font-family:'Tiro Devanagari Hindi',serif;font-size:17px;line-height:32px;color:var(--maroon-deep);margin-top:10px;}
 
 /* FAQ */
 .faq details{border-bottom:1px solid var(--line);padding:16px 0;}
@@ -173,7 +173,7 @@ nav{position:relative;align-items:center;}
 }
 
 /* SHAYARI OF THE DAY */
-.sotd{background:linear-gradient(135deg,var(--maroon-deep),var(--maroon));color:#fdf3e4;border-radius:18px;padding:26px 24px;margin:0 0 54px;position:relative;overflow:hidden;}
+.sotd{background:linear-gradient(135deg,var(--maroon-deep),var(--maroon));color:#EAF6FD;border-radius:18px;padding:26px 24px;margin:0 0 54px;position:relative;overflow:hidden;}
 .sotd::after{content:"🪶";position:absolute;right:18px;top:14px;font-size:40px;opacity:.18;}
 .sotd .tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.5px;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:999px;margin-bottom:12px;}
 .sotd .txt{font-family:'Tiro Devanagari Hindi',serif;font-size:19px;line-height:32px;max-width:600px;}
@@ -323,19 +323,25 @@ nav{position:relative;align-items:center;}
       <div class="field">
         <label class="field-label" for="topic">Shayari Ka Topic / Mood</label>
         <select id="topic">
-          <option value="Pyaar aur Mohabbat (Love)">❤️ Pyaar / Mohabbat</option>
-          <option value="Dosti aur Yaarana (Friendship)">🤝 Dosti / Yaarana</option>
-          <option value="Dard aur Judai (Sadness & Separation)">💔 Dard / Judai</option>
-          <option value="Zindagi aur Hikmat (Life & Wisdom)">🌿 Zindagi / Hikmat</option>
-          <option value="Maa-Baap aur Ghar (Parents & Home)">🙏 Maa-Baap</option>
-          <option value="Motivational aur Khudi (Self-Motivation)">🔥 Motivational</option>
-          <option value="Bewafaai aur Dhoka (Betrayal)">😔 Bewafaai / Dhoka</option>
-          <option value="Intezaar aur Yaad (Waiting & Longing)">🕰️ Intezaar / Yaad</option>
-          <option value="Ishq aur Mohabbat (Romantic Love)">🌹 Ishq / Romance</option>
-          <option value="Tyohar aur Jashn (Festivals)">🎉 Tyohar / Jashn</option>
-          <option value="Deshbhakti (Patriotism)">🇮🇳 Deshbhakti</option>
-          <option value="Barish aur Mausam (Rain & Season)">🌧️ Barish / Mausam</option>
-          <option value="custom">✍️ Apna Topic Likho</option>
+          <option value="Pyaar aur Mohabbat (Love)" data-key="love">❤️ Pyaar / Mohabbat</option>
+          <option value="Dosti aur Yaarana (Friendship)" data-key="dosti">🤝 Dosti / Yaarana</option>
+          <option value="Dard aur Judai (Sadness & Separation)" data-key="sad">💔 Dard / Judai</option>
+          <option value="Zindagi aur Hikmat (Life & Wisdom)" data-key="zindagi">🌿 Zindagi / Hikmat</option>
+          <option value="Maa-Baap aur Ghar (Parents & Home)" data-key="maa">🙏 Maa-Baap</option>
+          <option value="Motivational aur Khudi (Self-Motivation)" data-key="motivational">🔥 Motivational</option>
+          <option value="Bewafaai aur Dhoka (Betrayal)" data-key="bewafaai">😔 Bewafaai / Dhoka</option>
+          <option value="Intezaar aur Yaad (Waiting & Longing)" data-key="intezaar">🕰️ Intezaar / Yaad</option>
+          <option value="Ishq aur Mohabbat (Romantic Love)" data-key="love">🌹 Ishq / Romance</option>
+          <option value="Tyohar aur Jashn (Festivals)" data-key="festive">🎉 Tyohar / Jashn</option>
+          <option value="Deshbhakti (Patriotism)" data-key="deshbhakti">🇮🇳 Deshbhakti</option>
+          <option value="Barish aur Mausam (Rain & Season)" data-key="barish">🌧️ Barish / Mausam</option>
+          <option value="Attitude aur Khuddari (Bold Attitude)" data-key="attitude">😎 Attitude</option>
+          <option value="Kamyabi aur Success (Achievement)" data-key="success">🏆 Kamyabi / Success</option>
+          <option value="Maafi aur Sorry (Apology)" data-key="sorry">🙏 Maafi / Sorry</option>
+          <option value="Janamdin Mubarak (Birthday Wishes)" data-key="birthday">🎂 Janamdin</option>
+          <option value="Shaadi aur Rishta (Wedding & Relationship)" data-key="shaadi">💍 Shaadi / Rishta</option>
+          <option value="Tanhaai aur Akelapan (Loneliness)" data-key="tanhaai">🌙 Tanhaai / Akelapan</option>
+          <option value="custom" data-key="">✍️ Apna Topic Likho</option>
         </select>
       </div>
       <div class="field">
@@ -917,6 +923,46 @@ const BANK={
     {hi:"कुछ लम्हे ऐसे होते हैं जो शब्दों में नहीं समाते,\nबस महसूस किए जाते हैं, कहे नहीं जाते।",ur:"کچھ لمحے ایسے ہوتے ہیں جو الفاظ میں نہیں سماتے،\nبس محسوس کیے جاتے ہیں، کہے نہیں جاتے۔",ro:"Kuch lamhe aise hote hain jo shabdon mein nahi samaate,\nBas mehsoos kiye jaate hain, kahe nahi jaate."},
     {hi:"ज़िंदगी के हर रंग में एक कहानी छुपी होती है,\nबस देखने वाली नज़र चाहिए होती है।",ur:"زندگی کے ہر رنگ میں ایک کہانی چھپی ہوتی ہے،\nبس دیکھنے والی نظر چاہیے ہوتی ہے۔",ro:"Zindagi ke har rang mein ek kahani chhupi hoti hai,\nBas dekhne waali nazar chahiye hoti hai."},
     {hi:"अल्फ़ाज़ों में जो बात है, वो खामोशी में नहीं,\nदिल से दिल तक पहुँचे तो असर होता है सही।",ur:"الفاظوں میں جو بات ہے، وہ خاموشی میں نہیں،\nدل سے دل تک پہنچے تو اثر ہوتا ہے صحیح۔",ro:"Alfaazon mein jo baat hai, wo khamoshi mein nahi,\nDil se dil tak pahunche to asar hota hai sahi."}
+  ],
+  bewafaai:[
+    {hi:"जिसे अपना समझा वही गैर निकला,\nये दुनिया है दोस्तों, यहाँ हर रिश्ता बेअसर निकला।",ur:"جسے اپنا سمجھا وہی غیر نکلا،\nیہ دنیا ہے دوستو، یہاں ہر رشتہ بےاثر نکلا۔",ro:"Jise apna samjha wahi gair nikla,\nYe duniya hai doston, yahan har rishta beasar nikla."},
+    {hi:"वादे तो बहुत किए थे साथ निभाने के,\nअब वही लफ़्ज़ बेमानी लगते हैं याद आने के।",ur:"وعدے تو بہت کیے تھے ساتھ نبھانے کے،\nاب وہی لفظ بےمعنی لگتے ہیں یاد آنے کے۔",ro:"Waade to bahut kiye the saath nibhaane ke,\nAb wahi lafz bemaani lagte hain yaad aane ke."},
+    {hi:"धोखा देने वालों को इतना बता दूँ,\nजो अपनों को छोड़े, उसे मंज़िल नहीं मिलती।",ur:"دھوکہ دینے والوں کو اتنا بتا دوں،\nجو اپنوں کو چھوڑے، اسے منزل نہیں ملتی۔",ro:"Dhoka dene walon ko itna bata doon,\nJo apnon ko chhode, use manzil nahi milti."}
+  ],
+  intezaar:[
+    {hi:"हर दस्तक पे लगता है शायद तू आया है,\nये इंतज़ार भी अजीब सा सिलसिला बन गया है।",ur:"ہر دستک پہ لگتا ہے شاید تو آیا ہے،\nیہ انتظار بھی عجیب سا سلسلہ بن گیا ہے۔",ro:"Har dastak pe lagta hai shayad tu aaya hai,\nYe intezaar bhi ajeeb sa silsila ban gaya hai."},
+    {hi:"तेरी याद में बीतती हैं अब ये रातें सारी,\nकब लौटेगा तू, पूछती है हर घड़ी हमारी।",ur:"تیری یاد میں بیتتی ہیں اب یہ راتیں ساری،\nکب لوٹے گا تو، پوچھتی ہے ہر گھڑی ہماری۔",ro:"Teri yaad mein beetti hain ab ye raatein saari,\nKab lautega tu, poochhti hai har ghadi hamari."},
+    {hi:"राह तकते-तकते आँखें थक गई हैं,\nफिर भी उम्मीद है, कि तू लौट आएगा एक दिन।",ur:"راہ تکتے تکتے آنکھیں تھک گئی ہیں،\nپھر بھی امید ہے، کہ تو لوٹ آئے گا ایک دن۔",ro:"Raah takte-takte aankhein thak gayi hain,\nPhir bhi ummeed hai, ki tu laut aayega ek din."}
+  ],
+  attitude:[
+    {hi:"हम झुकते नहीं किसी की मर्ज़ी के लिए,\nअपने उसूलों पे चलते हैं, वाहवाही के लिए नहीं।",ur:"ہم جھکتے نہیں کسی کی مرضی کے لیے،\nاپنے اصولوں پہ چلتے ہیں، واہ واہی کے لیے نہیں۔",ro:"Hum jhukte nahi kisi ki marzi ke liye,\nApne usoolon pe chalte hain, wahwahi ke liye nahi."},
+    {hi:"जो समझ न सके हमारी खामोशी को,\nउन्हें हमारे जवाब का हक़ भी नहीं है।",ur:"جو سمجھ نہ سکے ہماری خاموشی کو،\nانہیں ہمارے جواب کا حق بھی نہیں ہے۔",ro:"Jo samajh na sake hamari khamoshi ko,\nUnhein hamare jawaab ka haq bhi nahi hai."},
+    {hi:"अपनी शर्तों पे जीना सीख लिया है अब,\nदुनिया की परवाह छोड़ के खुद को जी लिया है अब।",ur:"اپنی شرطوں پہ جینا سیکھ لیا ہے اب،\nدنیا کی پرواہ چھوڑ کے خود کو جی لیا ہے اب۔",ro:"Apni sharton pe jeena seekh liya hai ab,\nDuniya ki parwah chhod ke khud ko ji liya hai ab."}
+  ],
+  success:[
+    {hi:"मेहनत के दम पे जो मंज़िल बनाई है,\nवो कहानी है मेरी, हार से नहीं, जीत से लिखी गई है।",ur:"محنت کے دم پہ جو منزل بنائی ہے،\nوہ کہانی ہے میری، ہار سے نہیں، جیت سے لکھی گئی ہے۔",ro:"Mehnat ke dam pe jo manzil banai hai,\nWo kahani hai meri, haar se nahi, jeet se likhi gayi hai."},
+    {hi:"जिन्होंने कल मुझ पे शक़ किया था,\nआज वही मेरी कामयाबी की मिसाल देते हैं।",ur:"جنہوں نے کل مجھ پہ شک کیا تھا،\nآج وہی میری کامیابی کی مثال دیتے ہیں۔",ro:"Jinhone kal mujh pe shaq kiya tha,\nAaj wahi meri kamyaabi ki misaal dete hain."},
+    {hi:"सपनों को सच करने का जुनून जिसके पास हो,\nदुनिया की कोई ताक़त उसे रोक नहीं सकती।",ur:"سپنوں کو سچ کرنے کا جنون جس کے پاس ہو،\nدنیا کی کوئی طاقت اسے روک نہیں سکتی۔",ro:"Sapnon ko sach karne ka junoon jiske paas ho,\nDuniya ki koi taakat use rok nahi sakti."}
+  ],
+  sorry:[
+    {hi:"जो दिल दुखाया हो अनजाने में मैंने,\nमाफ़ी की गुज़ारिश है, दिल से मानूँ अपनी गलती मैंने।",ur:"جو دل دکھایا ہو انجانے میں میں نے،\nمعافی کی گزارش ہے، دل سے مانوں اپنی غلطی میں نے۔",ro:"Jo dil dukhaya ho anjaane mein maine,\nMaafi ki guzaarish hai, dil se maanoon apni galti maine."},
+    {hi:"अल्फ़ाज़ों से जो चोट पहुँचाई हो कभी,\nउसकी माफ़ी माँगता हूँ दिल की गहराई से अभी।",ur:"الفاظوں سے جو چوٹ پہنچائی ہو کبھی،\nاس کی معافی مانگتا ہوں دل کی گہرائی سے ابھی۔",ro:"Alfaazon se jo chot pahunchai ho kabhi,\nUski maafi maangta hoon dil ki gehraai se abhi."},
+    {hi:"गलती हुई है मुझसे, ये मैं मानता हूँ,\nरिश्ता टूटे नहीं, बस यही चाहता हूँ।",ur:"غلطی ہوئی ہے مجھ سے، یہ میں مانتا ہوں،\nرشتہ ٹوٹے نہیں، بس یہی چاہتا ہوں۔",ro:"Galti hui hai mujhse, ye main maanta hoon,\nRishta toote nahi, bas yehi chahta hoon."}
+  ],
+  birthday:[
+    {hi:"हर साल ये दिन लेकर आए नई खुशियाँ,\nतेरी मुस्कान बनी रहे, यही है मेरी दुआ।",ur:"ہر سال یہ دن لے کر آئے نئی خوشیاں،\nتیری مسکان بنی رہے، یہی ہے میری دعا۔",ro:"Har saal ye din lekar aaye nayi khushiyan,\nTeri muskaan bani rahe, yehi hai meri dua."},
+    {hi:"जन्मदिन की ढेरों बधाइयाँ हों तुझे,\nखुदा तेरी हर ख्वाहिश पूरी करे यही दुआ है मेरी।",ur:"جنم دن کی ڈھیروں مبارکیں ہوں تجھے،\nخدا تیری ہر خواہش پوری کرے یہی دعا ہے میری۔",ro:"Janamdin ki dheron badhaiyan hon tujhe,\nKhuda teri har khwahish poori kare yehi dua hai meri."},
+    {hi:"आज के दिन तू पैदा हुआ था यारा,\nखुशनसीब हैं हम जो मिला तेरा साथ प्यारा।",ur:"آج کے دن تو پیدا ہوا تھا یارا،\nخوش نصیب ہیں ہم جو ملا تیرا ساتھ پیارا۔",ro:"Aaj ke din tu paida hua tha yaara,\nKhushnaseeb hain hum jo mila tera saath pyaara."}
+  ],
+  shaadi:[
+    {hi:"दो दिलों का मिलन है, दो रूहों का बंधन,\nशाादी की इस घड़ी में खुशियाँ बरसें अनगिनत।",ur:"دو دلوں کا ملن ہے، دو روحوں کا بندھن،\nشادی کی اس گھڑی میں خوشیاں برسیں انگنت۔",ro:"Do dilon ka milan hai, do roohon ka bandhan,\nShaadi ki is ghadi mein khushiyan barsein anginat."},
+    {hi:"साथ जीने मरने की जो कसमें खाई हैं,\nवो रिश्ता उम्र भर यूँही निभता रहे।",ur:"ساتھ جینے مرنے کی جو قسمیں کھائی ہیں،\nوہ رشتہ عمر بھر یونہی نبھتا رہے۔",ro:"Saath jeene marne ki jo kasmein khaayi hain,\nWo rishta umar bhar yunhi nibhta rahe."},
+    {hi:"नए सफ़र की शुरुआत मुबारक हो तुम्हें,\nहर कदम पर एक-दूसरे का साथ मिले तुम्हें।",ur:"نئے سفر کی شروعات مبارک ہو تمہیں،\nہر قدم پر ایک دوسرے کا ساتھ ملے تمہیں۔",ro:"Naye safar ki shuruaat mubarak ho tumhein,\nHar kadam par ek-dusre ka saath mile tumhein."}
+  ],
+  tanhaai:[
+    {hi:"भीड़ में रहकर भी तन्हा हूँ मैं यारों,\nदिल की बातें अब खुद से ही करता हूँ मैं यारों।",ur:"بھیڑ میں رہ کر بھی تنہا ہوں میں یارو،\nدل کی باتیں اب خود سے ہی کرتا ہوں میں یارو۔",ro:"Bheed mein rehkar bhi tanha hoon main yaaron,\nDil ki baatein ab khud se hi karta hoon main yaaron."},
+    {hi:"तन्हाई भी एक साथी बन गई है अब,\nखामोश रातों में यही मेरी हमदम बन गई है अब।",ur:"تنہائی بھی ایک ساتھی بن گئی ہے اب،\nخاموش راتوں میں یہی میری ہمدم بن گئی ہے اب۔",ro:"Tanhai bhi ek saathi ban gayi hai ab,\nKhamosh raaton mein yehi meri humdam ban gayi hai ab."},
+    {hi:"अकेलेपन में भी एक सुकून मिल जाता है,\nखुद से मुलाक़ात का मौका मिल जाता है।",ur:"اکیلے پن میں بھی ایک سکون مل جاتا ہے،\nخود سے ملاقات کا موقع مل جاتا ہے۔",ro:"Akelepan mein bhi ek sukoon mil jaata hai,\nKhud se mulaqaat ka mauka mil jaata hai."}
   ]
 };
 
@@ -925,22 +971,23 @@ function mapTopicToKey(topicVal, customText){
     const t=(customText||'').toLowerCase();
     if(/maa|ammi|abbu|baba|papa|ghar/.test(t))return'maa';
     if(/dost|yaar/.test(t))return'dosti';
-    if(/dard|gham|rona|judai|dhoka|bewafa/.test(t))return'sad';
-    if(/josh|himmat|motivat|kamyabi/.test(t))return'motivational';
+    if(/akela|tanha|lonely/.test(t))return'tanhaai';
+    if(/sorry|maafi|maaf/.test(t))return'sorry';
+    if(/shaadi|rishta|wedding|nikah/.test(t))return'shaadi';
+    if(/birthday|janamdin|salgirah/.test(t))return'birthday';
+    if(/success|kamyabi|jeet/.test(t))return'success';
+    if(/attitude|khuddari|nafrat/.test(t))return'attitude';
+    if(/dhoka|bewafa/.test(t))return'bewafaai';
+    if(/intezaar|yaad/.test(t))return'intezaar';
+    if(/dard|gham|rona|judai/.test(t))return'sad';
+    if(/josh|himmat|motivat/.test(t))return'motivational';
     if(/barish|sawan|mausam/.test(t))return'barish';
     if(/watan|desh|tiranga|eid|diwali|holi|tyohar/.test(t))return'festive';
     if(/pyaar|ishq|mohabbat|prem/.test(t))return'love';
     return'general';
   }
-  if(/Pyaar|Ishq/.test(topicVal))return'love';
-  if(/Dosti/.test(topicVal))return'dosti';
-  if(/Dard|Bewafaai|Intezaar/.test(topicVal))return'sad';
-  if(/Motivational/.test(topicVal))return'motivational';
-  if(/Maa-Baap/.test(topicVal))return'maa';
-  if(/Zindagi/.test(topicVal))return'zindagi';
-  if(/Tyohar|Deshbhakti/.test(topicVal))return'festive';
-  if(/Barish/.test(topicVal))return'barish';
-  return'general';
+  const opt=[...topicSel.options].find(o=>o.value===topicVal);
+  return (opt && opt.dataset.key) || 'general';
 }
 
 function pickRandomCouplets(pool,n){
@@ -979,6 +1026,26 @@ function scriptInstruction(s){
   return 'Sirf Roman/Hinglish (English letters) mein likho, jaise WhatsApp par Hindi likhte hain.';
 }
 
+const FEELING={
+  love:'deewangi bhara ishq, dil ki dhadkan aur chahat ka junoon',
+  dosti:'apnapan, bharosa aur yaari ka fakhr',
+  sad:'gehra dard aur tanha dil ka gham',
+  motivational:'josh, himmat aur khud pe yakeen',
+  maa:'shraddha, mamta aur ehsaanmandi',
+  zindagi:'thehrav bhari soch aur zindagi ka sabak',
+  festive:'rangeen josh aur milan ki khushi',
+  barish:'romantic sukoon aur bheegi hui yaadein',
+  bewafaai:'tadapta gussa aur dhoke ka gehra dard',
+  intezaar:'khamosh tadap aur ummeed ka intezaar',
+  attitude:'bebaak khuddari aur nidar andaaz',
+  success:'fakhr, junoon aur mehnat ki jeet',
+  sorry:'nadamat aur dil se maangi hui saccha maafi',
+  birthday:'khushi bhari dua aur jashn ka josh',
+  shaadi:'do dilon ke milan ka waada aur prem',
+  tanhaai:'khamosh akelapan aur khud se samvaad',
+  general:'universal, dil ko chhoo jaane wala ehsaas'
+};
+
 function setSeal(source){
   lastSource=source;
   if(source==='ai'){
@@ -990,21 +1057,25 @@ function setSeal(source){
   }
 }
 
-async function fetchFromGemini(topic,tone,linesVal){
+async function fetchFromGemini(topic,tone,linesVal,key,totalLines){
+  const feeling=FEELING[key]||FEELING.general;
   const prompt=`Tum ek mash'hoor, ustaad shayar ho — Gulzar, Jaun Elia aur Rahat Indori ke andaaz jaisa gehra aur asardaar likhte ho. Tumhari shayari sunke log "haay", "wah wah", "kya baat hai" bol uthte hain, kyunki har lafz seedha dil mein utarta hai.
 
 Topic: "${topic}"
 Tone: "${tone}"
-Lambai: ${linesVal}
+Is topic ka ehsaas: ${feeling}
 
-Zaroori usool (in sabko follow karo):
+⚠️ SABSE ZAROORI NIYAM — LAMBAI:
+Total sirf aur sirf ${totalLines} lines likhni hain, na ek line kam na ek zyada. Ye ek chhoti shayari/sher hai, poori ghazal ya nazm NAHI likhni. Agar tum isse zyada likhoge to jawab reject ho jayega.
+
+Baaki usool:
 1. Koi bhi seedhi-saadi, filmy ya generic line mat likho (jaise "dil mein basi ho tum" jaisi ghisi-piti lines avoid karo).
 2. Har sher mein ek strong imagery, metaphor ya tashbeeh (comparison) ho — jaise mausam, chaand, khat, chai, sadkein, khamoshi, aaina, jaise rozmarra ki cheezon ko emotion se jodo.
 3. Alfaaz saadā rakho lekin maqsad gehra ho — jaise kam se kam lafzon mein zyada se zyada dard ya khushi jhalke.
-4. Har line ka apna vazan (rhythm) ho, aur akhri sher mein ek chhota sa twist ya "punch" ho jo padhne wale ko ek pal ke liye rok de.
+4. Akhri line mein ek chhota sa twist ya "punch" ho jo padhne wale ko ek pal ke liye rok de.
 5. ${scriptInstruction(script)}
 
-Sirf shayari ka final text do — koi explanation, heading, quotes, ya intro-outro nahi.`;
+Sirf shayari ka final text do (bilkul ${totalLines} lines) — koi explanation, heading, quotes, numbering, ya intro-outro nahi.`;
   const res=await fetch('/api/generate',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
@@ -1017,7 +1088,12 @@ Sirf shayari ka final text do — koi explanation, heading, quotes, ya intro-out
     throw err;
   }
   if(!data.text)throw new Error('Empty response');
-  return data.text;
+
+  /* Safety net: AI kabhi-kabhi zyada lines likh deta hai (poori ghazal),
+     isliye yahan hum jabardasti sirf utni hi lines rakhte hain jitni maangi thi. */
+  const cleanLines=data.text.split('\n').map(l=>l.trim()).filter(l=>l.length>0);
+  const trimmed=cleanLines.slice(0,totalLines).join('\n');
+  return trimmed || data.text.trim();
 }
 
 function generateShayari(){
@@ -1026,21 +1102,20 @@ function generateShayari(){
   const key=mapTopicToKey(topicSel.value,document.getElementById('customTopic').value);
   const linesVal=document.getElementById('lines').value;
   const n=linesVal.includes('2')?1:linesVal.includes('4')?2:linesVal.includes('6')?3:4;
+  const totalLines=n*2;
 
   genBtn.disabled=true; genBtn.textContent='✨ Likh raha hoon...';
   output.className=script.includes('Urdu')?'shayari-text urdu-mode':'shayari-text';
   output.innerHTML='<span class="placeholder-txt">Shayari taiyaar ho rahi hai...</span>';
   document.getElementById('triView').classList.remove('show');
 
-  fetchFromGemini(topic,tone,linesVal).then(text=>{
+  fetchFromGemini(topic,tone,linesVal,key,totalLines).then(text=>{
     lastCouplets=[{hi:text,ur:text,ro:text}];
     output.textContent=text;
     setSeal('ai');
     genBtn.disabled=false; genBtn.textContent='✨ Shayari Generate Karein';
   }).catch((err)=>{
-    /* TEMPORARY DEBUG: asli error seedha screen par dikhata hai taaki
-       Vercel logs mein jaane ki zaroorat na pade. Baad mein ye alert() line hata denge. */
-    alert('⚠️ AI API fail hui, wajah:\n\n'+(err.detail||err.message||'Unknown error'));
+    console.error('AI Shayari: API call failed →',err.detail||err.message);
     /* Agar API fail ho jaaye (galat key, no internet, quota khatam) to
        local shayari bank se fallback ho jaata hai — user ko blank screen kabhi nahi dikhta */
     const pool=BANK[key]||BANK.general;
