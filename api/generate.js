@@ -19,7 +19,11 @@ async function tryModel(model, apiKey, prompt) {
     body: JSON.stringify({
       model,
       messages: [{ role: 'user', content: prompt }],
-      temperature: 0.9,
+      temperature: 1.05,
+      top_p: 0.95,
+      frequency_penalty: 0.4,
+      presence_penalty: 0.3,
+      max_tokens: 300,
     }),
   });
   if (!res.ok) {
