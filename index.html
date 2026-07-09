@@ -89,6 +89,26 @@ h2{font-family:'Manrope',sans-serif;font-weight:800;font-size:26px;color:var(--m
 .card h3{margin-bottom:7px;font-size:15.5px;color:var(--maroon);}
 .card p{font-size:14px;color:#445A6B;line-height:1.6;}
 
+/* TRUST BAR */
+.trust-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin:0 0 40px;padding:16px 20px;border-radius:14px;background:var(--paper-dark);border:1px solid var(--line);}
+.trust-item{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--maroon-deep);}
+.trust-item .n{color:var(--maroon);font-weight:800;}
+
+/* BENEFITS */
+.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+.benefit-card{background:linear-gradient(160deg,#FFFFFF,var(--paper-dark));border:1px solid var(--line);border-radius:14px;padding:22px;}
+.benefit-card .icon{font-size:24px;margin-bottom:10px;}
+.benefit-card h3{font-size:15.5px;color:var(--maroon-deep);margin-bottom:7px;}
+.benefit-card p{font-size:13.5px;color:#445A6B;line-height:1.6;}
+
+/* USE CASES */
+.usecase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.usecase-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px 18px;text-align:center;cursor:pointer;transition:.2s;}
+.usecase-card:hover{border-color:var(--maroon);transform:translateY(-2px);box-shadow:0 14px 28px -18px rgba(2,84,135,.4);}
+.usecase-card .icon{font-size:26px;margin-bottom:10px;}
+.usecase-card h4{font-size:14px;color:var(--maroon-deep);margin-bottom:5px;}
+.usecase-card p{font-size:12px;color:#5C7A91;}
+
 /* KEYWORD GRID */
 .kw-section h2{margin-bottom:12px;}
 .kw-intro{font-size:15px;color:#4A6178;margin-bottom:26px;line-height:1.6;}
@@ -303,6 +323,8 @@ nav{position:relative;align-items:center;}
           <a href="#dosti-shayari-generator">🤝 Dosti Shayari</a>
           <a href="#motivational-shayari-generator">🔥 Motivational Shayari</a>
           <a href="#2-line-shayari-generator">✍️ 2-Line Shayari</a>
+          <a href="#valentines-day-shayari-generator">💘 Valentine's Day</a>
+          <a href="#anniversary-shayari-generator">🥂 Anniversary Shayari</a>
         </div>
       </div>
       <a href="#guide">Blog / Guide</a>
@@ -320,6 +342,12 @@ nav{position:relative;align-items:center;}
   <span class="eyebrow"><span class="badge">FREE</span> AI Powered · No Sign-up · Instant</span>
   <h1>AI Shayari Generator — Turn Your Feelings Into Shayari in Seconds</h1>
   <p class="sub">The best <strong>AI Shayari Generator</strong> online — pick love, friendship, sadness, motivation or any topic and get original Hindi, Urdu, or Roman shayari instantly.</p>
+  <div class="trust-bar">
+    <span class="trust-item"><span class="n">20+</span> Topics</span>
+    <span class="trust-item"><span class="n">4</span> Scripts</span>
+    <span class="trust-item"><span class="n">100%</span> Free</span>
+    <span class="trust-item"><span class="n">0</span> Sign-up Needed</span>
+  </div>
 </div>
 
 <!-- TOOL -->
@@ -347,6 +375,8 @@ nav{position:relative;align-items:center;}
           <option value="Janamdin Mubarak (Birthday Wishes)" data-key="birthday">🎂 Janamdin</option>
           <option value="Shaadi aur Rishta (Wedding & Relationship)" data-key="shaadi">💍 Shaadi / Rishta</option>
           <option value="Tanhaai aur Akelapan (Loneliness)" data-key="tanhaai">🌙 Tanhaai / Akelapan</option>
+          <option value="Valentine's Day aur Propose (Confessing Love)" data-key="valentine">💘 Valentine's Day</option>
+          <option value="Anniversary aur Saalgirah (Celebrating Years Together)" data-key="anniversary">🥂 Anniversary</option>
           <option value="custom" data-key="">✍️ Apna Topic Likho</option>
         </select>
       </div>
@@ -517,6 +547,16 @@ nav{position:relative;align-items:center;}
       <p>Akelapan, khamoshi, sukoon</p>
       <span class="kw-tag">tanhaai shayari ai</span>
     </div>
+    <div class="kw-card" onclick="setTopicTag(&quot;Valentine's Day aur Propose (Confessing Love)&quot;)">
+      <h4>💘 Valentine's Shayari</h4>
+      <p>Propose, confess, crush</p>
+      <span class="kw-tag">valentine shayari generator</span>
+    </div>
+    <div class="kw-card" onclick="setTopicTag('Anniversary aur Saalgirah (Celebrating Years Together)')">
+      <h4>🥂 Anniversary Shayari</h4>
+      <p>Saalgirah, saath, waada</p>
+      <span class="kw-tag">anniversary shayari ai</span>
+    </div>
   </div>
 </section>
 
@@ -585,6 +625,30 @@ nav{position:relative;align-items:center;}
   <div class="cat-links"><a href="#love-shayari-generator">❤️ Love Shayari →</a><a href="#sad-shayari-generator">💔 Sad Shayari →</a><a href="#tool">✨ Generate 2-Line Shayari</a></div>
 </section>
 
+<!-- CATEGORY: VALENTINE'S DAY -->
+<section class="wrap cat-section" id="valentines-day-shayari-generator">
+  <h2>💘 Valentine's Day Shayari Generator — Confess What Your Heart Feels</h2>
+  <p class="section-sub">Struggling to say "I love you" the right way? This <strong>Valentine's Day shayari generator</strong> helps you confess, propose, or simply express your feelings — for a crush, partner, or someone special. Select "Valentine's Day" in the <a href="#tool">AI Shayari Generator</a> above.</p>
+  <div class="cat-grid">
+    <div class="cat-item">कहने को तो बहुत कुछ है दिल में मेरे,<br>बस तेरा हाँ कहना बाकी है अब तो।</div>
+    <div class="cat-item">वैलेंटाइन के इस दिन इतना कह दूँ तुझसे,<br>तेरे बिना अधूरी है ये ज़िंदगी मेरी।</div>
+    <div class="cat-item">तेरा साथ माँगता है ये दिल आज भी,<br>हो जा मेरी, यही इक ख्वाहिश है बाकी।</div>
+  </div>
+  <div class="cat-links"><a href="#love-shayari-generator">❤️ Love Shayari →</a><a href="#anniversary-shayari-generator">🥂 Anniversary Shayari →</a><a href="#tool">✨ Generate Valentine's Shayari</a></div>
+</section>
+
+<!-- CATEGORY: ANNIVERSARY -->
+<section class="wrap cat-section" id="anniversary-shayari-generator">
+  <h2>🥂 Anniversary Shayari Generator — Celebrate Every Year Together</h2>
+  <p class="section-sub">Whether it's your wedding anniversary or the day you first met — this <strong>anniversary shayari generator</strong> captures years of togetherness in words. Select "Anniversary" above to create a personalised shayari for your partner.</p>
+  <div class="cat-grid">
+    <div class="cat-item">जितने साल साथ बिताए, उतनी ही मोहब्बत बढ़ी है,<br>हर साल के साथ ये रिश्ता और गहरा हुआ है।</div>
+    <div class="cat-item">साथ चलते-चलते ये सफ़र इतना हसीन हुआ,<br>हर साल गिरह पे यही दुआ है, साथ यूँही रहे।</div>
+    <div class="cat-item">वादा निभाया है साथ रहने का हमने,<br>हर सालगिरह इसी वादे की गवाह है।</div>
+  </div>
+  <div class="cat-links"><a href="#love-shayari-generator">❤️ Love Shayari →</a><a href="#valentines-day-shayari-generator">💘 Valentine's Shayari →</a><a href="#tool">✨ Generate Anniversary Shayari</a></div>
+</section>
+
 <!-- EXAMPLE SHAYARIS -->
 <section class="wrap" id="examples">
   <h2>AI Shayari Examples — See It in Action</h2>
@@ -628,6 +692,32 @@ nav{position:relative;align-items:center;}
     <div class="card"><div class="icon">🚀</div><h3>Instant AI Generation</h3><p>Powered by fast AI models — original, repetition-free shayari in seconds, every single time.</p></div>
     <div class="card"><div class="icon">📱</div><h3>WhatsApp Ready</h3><p>Copy with one tap or share directly to WhatsApp Status — no formatting issues, ever.</p></div>
     <div class="card"><div class="icon">🔓</div><h3>Completely Free</h3><p>No subscription, no hidden cost — free AI shayari generation, always.</p></div>
+  </div>
+</section>
+
+<!-- BENEFITS (emotional, distinct from functional Features above) -->
+<section class="wrap">
+  <h2>Why Shayari Lovers Keep Coming Back</h2>
+  <p class="section-sub">Features tell you what the tool does — this is what it actually does <em>for you</em>.</p>
+  <div class="benefit-grid">
+    <div class="benefit-card"><div class="icon">💬</div><h3>Kabhi Alfaaz Kam Na Padein</h3><p>Jab dil mein bahut kuch ho par zubaan sath na de, ye tool wahi lafz dhoond deta hai jo aap kehna chahte the.</p></div>
+    <div class="benefit-card"><div class="icon">⏱️</div><h3>Waqt Ki Bachat</h3><p>Ghanton soch kar likhne ki zaroorat nahi — seconds mein ek achhi shayari, jab bhi zaroorat ho.</p></div>
+    <div class="benefit-card"><div class="icon">🎯</div><h3>Har Rishtey Ke Liye Sahi Andaaz</h3><p>Partner ho, dost ho, ya maa-baap — tone aur topic badal kar har rishtey ke liye sahi shayari milti hai.</p></div>
+    <div class="benefit-card"><div class="icon">🔁</div><h3>Kabhi Ek Jaisi Nahi</h3><p>Har baar naya, original result — pasand na aaye to bas "Dobara Try" dabayein.</p></div>
+  </div>
+</section>
+
+<!-- USE CASES (real-world scenarios, distinct from mood-based categories) -->
+<section class="wrap">
+  <h2>Is Tool Ko Kab Use Karein</h2>
+  <p class="section-sub">Chahe occasion koi bhi ho, sahi shayari ek click door hai.</p>
+  <div class="usecase-grid">
+    <div class="usecase-card" onclick="setTopicTag('Pyaar aur Mohabbat (Love)')"><div class="icon">📸</div><h4>Instagram Bio / Caption</h4><p>Short, catchy shayari jo profile ko alag banaye</p></div>
+    <div class="usecase-card" onclick="document.getElementById('lines').value='exactly 2 lines';setTopicTag('Zindagi aur Hikmat (Life & Wisdom)')"><div class="icon">📱</div><h4>WhatsApp Status</h4><p>2-line shayari, ek tap mein copy aur share</p></div>
+    <div class="usecase-card" onclick="setTopicTag('Anniversary aur Saalgirah (Celebrating Years Together)')"><div class="icon">💌</div><h4>Greeting Card Message</h4><p>Anniversary ya birthday card ke andar likhne ke liye</p></div>
+    <div class="usecase-card" onclick="setTopicTag(&quot;Valentine's Day aur Propose (Confessing Love)&quot;)"><div class="icon">💐</div><h4>Propose Karne Ke Liye</h4><p>Dil ki baat kehne ke liye sahi lafz</p></div>
+    <div class="usecase-card" onclick="setTopicTag('Janamdin Mubarak (Birthday Wishes)')"><div class="icon">🎁</div><h4>Birthday Wish</h4><p>Simple message se hatke, yaadgaar shayari</p></div>
+    <div class="usecase-card" onclick="setTopicTag('Maafi aur Sorry (Apology)')"><div class="icon">🕊️</div><h4>Maafi Maangne Ke Liye</h4><p>Jab "sorry" se zyada kuch kehna ho</p></div>
   </div>
 </section>
 
@@ -771,6 +861,8 @@ nav{position:relative;align-items:center;}
     <span class="tag" onclick="setTopicTag('Dard aur Judai (Sadness & Separation)')">4 line shayari ai</span>
     <span class="tag" onclick="setTopicTag('Zindagi aur Hikmat (Life & Wisdom)')">best ai shayari</span>
     <span class="tag" onclick="setTopicTag('Dard aur Judai (Sadness & Separation)')">free shayari generator online</span>
+    <span class="tag" onclick="setTopicTag(&quot;Valentine's Day aur Propose (Confessing Love)&quot;)">valentine shayari generator</span>
+    <span class="tag" onclick="setTopicTag('Anniversary aur Saalgirah (Celebrating Years Together)')">anniversary shayari ai</span>
   </div>
 </section>
 
@@ -790,6 +882,8 @@ nav{position:relative;align-items:center;}
           <li><a href="#sad-shayari-generator">Sad Shayari Generator</a></li>
           <li><a href="#motivational-shayari-generator">Motivational Shayari</a></li>
           <li><a href="#2-line-shayari-generator">2-Line Shayari</a></li>
+          <li><a href="#valentines-day-shayari-generator">Valentine's Day Shayari</a></li>
+          <li><a href="#anniversary-shayari-generator">Anniversary Shayari</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1002,6 +1096,16 @@ const BANK={
     {hi:"भीड़ में रहकर भी तन्हा हूँ मैं यारों,\nदिल की बातें अब खुद से ही करता हूँ मैं यारों।",ur:"بھیڑ میں رہ کر بھی تنہا ہوں میں یارو،\nدل کی باتیں اب خود سے ہی کرتا ہوں میں یارو۔",ro:"Bheed mein rehkar bhi tanha hoon main yaaron,\nDil ki baatein ab khud se hi karta hoon main yaaron."},
     {hi:"तन्हाई भी एक साथी बन गई है अब,\nखामोश रातों में यही मेरी हमदम बन गई है अब।",ur:"تنہائی بھی ایک ساتھی بن گئی ہے اب،\nخاموش راتوں میں یہی میری ہمدم بن گئی ہے اب۔",ro:"Tanhai bhi ek saathi ban gayi hai ab,\nKhamosh raaton mein yehi meri humdam ban gayi hai ab."},
     {hi:"अकेलेपन में भी एक सुकून मिल जाता है,\nखुद से मुलाक़ात का मौका मिल जाता है।",ur:"اکیلے پن میں بھی ایک سکون مل جاتا ہے،\nخود سے ملاقات کا موقع مل جاتا ہے۔",ro:"Akelepan mein bhi ek sukoon mil jaata hai,\nKhud se mulaqaat ka mauka mil jaata hai."}
+  ],
+  valentine:[
+    {hi:"कहने को तो बहुत कुछ है दिल में मेरे,\nबस तेरा हाँ कहना बाकी है अब तो।",ur:"کہنے کو تو بہت کچھ ہے دل میں میرے،\nبس تیرا ہاں کہنا باقی ہے اب تو۔",ro:"Kehne ko to bahut kuch hai dil mein mere,\nBas tera haan kehna baaki hai ab to."},
+    {hi:"वैलेंटाइन के इस दिन इतना कह दूँ तुझसे,\nतेरे बिना अधूरी है ये ज़िंदगी मेरी।",ur:"ویلنٹائن کے اس دن اتنا کہہ دوں تجھ سے،\nتیرے بغیر ادھوری ہے یہ زندگی میری۔",ro:"Valentine ke is din itna keh doon tujhse,\nTere bina adhoori hai ye zindagi meri."},
+    {hi:"तेरा साथ माँगता है ये दिल आज भी,\nहो जा मेरी, यही इक ख्वाहिश है बाकी।",ur:"تیرا ساتھ مانگتا ہے یہ دل آج بھی،\nہو جا میری، یہی اک خواہش ہے باقی۔",ro:"Tera saath maangta hai ye dil aaj bhi,\nHo ja meri, yehi ek khwahish hai baaki."}
+  ],
+  anniversary:[
+    {hi:"जितने साल साथ बिताए, उतनी ही मोहब्बत बढ़ी है,\nहर साल के साथ ये रिश्ता और गहरा हुआ है।",ur:"جتنے سال ساتھ بتائے، اتنی ہی محبت بڑھی ہے،\nہر سال کے ساتھ یہ رشتہ اور گہرا ہوا ہے۔",ro:"Jitne saal saath bitaaye, utni hi mohabbat badhi hai,\nHar saal ke saath ye rishta aur gehra hua hai."},
+    {hi:"साथ चलते-चलते ये सफ़र इतना हसीन हुआ,\nहर साल गिरह पे यही दुआ है, साथ यूँही रहे।",ur:"ساتھ چلتے چلتے یہ سفر اتنا حسین ہوا،\nہر سال گرہ پہ یہی دعا ہے، ساتھ یونہی رہے۔",ro:"Saath chalte-chalte ye safar itna haseen hua,\nHar saal girah pe yehi dua hai, saath yunhi rahe."},
+    {hi:"वादा निभाया है साथ रहने का हमने,\nहर सालगिरह इसी वादे की गवाह है।",ur:"وعدہ نبھایا ہے ساتھ رہنے کا ہم نے،\nہر سالگرہ اسی وعدے کی گواہ ہے۔",ro:"Waada nibhaya hai saath rehne ka humne,\nHar saalgirah isi waade ki gawah hai."}
   ]
 };
 
@@ -1012,6 +1116,8 @@ function mapTopicToKey(topicVal, customText){
     if(/dost|yaar/.test(t))return'dosti';
     if(/akela|tanha|lonely/.test(t))return'tanhaai';
     if(/sorry|maafi|maaf/.test(t))return'sorry';
+    if(/valentine|propose|confess|crush/.test(t))return'valentine';
+    if(/anniversary|saalgirah|shaadi ki/.test(t))return'anniversary';
     if(/shaadi|rishta|wedding|nikah/.test(t))return'shaadi';
     if(/birthday|janamdin|salgirah/.test(t))return'birthday';
     if(/success|kamyabi|jeet/.test(t))return'success';
@@ -1082,6 +1188,8 @@ const FEELING={
   birthday:'khushi bhari dua aur jashn ka josh',
   shaadi:'do dilon ke milan ka waada aur prem',
   tanhaai:'khamosh akelapan aur khud se samvaad',
+  valentine:'confess karne ki himmat aur dil ki gehri chahat',
+  anniversary:'saalon ka saath, shukrguzaari aur badhta hua bharosa',
   general:'universal, dil ko chhoo jaane wala ehsaas'
 };
 
